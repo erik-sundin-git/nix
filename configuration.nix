@@ -14,6 +14,8 @@
 
   # enable flakes
   nix.settings.experimental-features = ["nix-command" "flakes"];
+  # ssh
+
 
   # Bootloader.
   boot.loader.grub.enable = true;
@@ -87,9 +89,9 @@
 
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
-
+  # services.openssh.passwordAuthentication = false; TODO: disable password auth
   # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
+  #networking.firewall.allowedTCPPorts = [22 ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;

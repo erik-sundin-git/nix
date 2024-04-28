@@ -1,3 +1,8 @@
+ # home-manager
+ #
+ # Erik Sundin
+ #
+
 { config, pkgs, ... }:
 
 {
@@ -6,6 +11,10 @@
   home.username = "erik";
   home.homeDirectory = "/home/erik";
   
+
+  nixpkgs.config.allowUnfree = true;
+  
+  # git config  
   programs.git = {
    enable = true;
    userName = "Erik Sundin";
@@ -14,6 +23,14 @@
       init.defaultBranch = "main";
     };
   };
+
+  # vscode
+  programs.vscode = {
+    enable = true;
+    extensions = with pkgs; [
+      vscode-extensions.vscodevim.vim
+    ];
+  }; 
   
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
