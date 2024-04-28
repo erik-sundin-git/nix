@@ -14,7 +14,7 @@
 
   nixpkgs.config.allowUnfree = true;
   
-  # git config  
+  # git 
   programs.git = {
    enable = true;
    userName = "Erik Sundin";
@@ -33,6 +33,18 @@
       vscode-extensions.bbenoist.nix
     ];
   }; 
+
+  programs.fish = {
+  interactiveShellInit = ''
+    if [[ $(${pkgs.procps}/bin/ps --no-header --pid=$PPID --format=comm) != "fish" && -z ''${BASH_EXECUTION_STRING} ]]
+    then
+      shopt -q login_shell && LOGIN_OPTION='--login' || LOGIN_OPTION=""
+      exec ${pkgs.fish}/bin/fish $LOGIN_OPTION
+    fi
+  '';
+  };
+
+
   
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release

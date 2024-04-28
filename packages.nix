@@ -11,5 +11,6 @@
     git
     dmenu
     vscode-with-extensions
+    fish
   ];
 }

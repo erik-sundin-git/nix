@@ -14,8 +14,8 @@
 
   # enable flakes
   nix.settings.experimental-features = ["nix-command" "flakes"];
-  # ssh
 
+  programs.fish.enable = true;
 
   # Bootloader.
   boot.loader.grub.enable = true;
