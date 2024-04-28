@@ -29,6 +29,8 @@
     enable = true;
     extensions = with pkgs; [
       vscode-extensions.vscodevim.vim
+      vscode-extensions.jdinhlife.gruvbox
+      vscode-extensions.bbenoist.nix
     ];
   }; 
   
