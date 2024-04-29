@@ -1,7 +1,7 @@
 # packages.nix
 # Erik Sundin
 #
-#
+# Packages to be enabled systemwide.
 #
 
 { pkgs, ...}:  {
@@ -12,5 +12,6 @@
     dmenu
     vscode-with-extensions
     fish
+    nitrogen
   ];
 }

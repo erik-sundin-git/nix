@@ -17,10 +17,19 @@
 
   programs.fish.enable = true;
 
-  # Bootloader.
-  boot.loader.grub.enable = true;
-  boot.loader.grub.device = "/dev/vda";
-  boot.loader.grub.useOSProber = true;
+
+  boot.kernelParams = [ "intel_idle.max_cstate=1" ]; # In case your laptop hangs randomly
+  boot.loader = {
+    efi = {
+      canTouchEfiVariables = false;
+    };
+    grub = {
+       efiSupport = true;
+       efiInstallAsRemovable = true;
+       device = "nodev";
+    };
+  };
+
 
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
