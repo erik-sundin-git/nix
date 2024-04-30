@@ -24,6 +24,9 @@
        ./configuration.nix
        ./dm.nix
        ./packages.nix	
+        ({ config, pkgs, ... }: {
+        services.picom.enable = true;
+         })
       ];
     };
     homeConfigurations = {
