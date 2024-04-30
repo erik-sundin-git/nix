@@ -6,12 +6,15 @@
 
 { pkgs, ...}:  {
   environment.systemPackages = with pkgs; [
-    firefox #TODO: add custom firefox config
+    firefox                  #TODO: add custom firefox config
+    qutebrowser
     alacritty
     git
     dmenu
     vscode-with-extensions
-    fish
-    nitrogen
+    fish                     #TODO: configure
+    nitrogen                 # wallpapers
+    bitwarden                # passwords
+    sct                      # screen color temperature
   ];
 }
