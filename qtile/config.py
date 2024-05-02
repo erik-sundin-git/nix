@@ -185,14 +185,17 @@ screens = [
                     },
                     name_transform=lambda name: name.upper(),
                 ),
+                widget.Wlan(),
                 widget.Battery(
                     background = "B6CB9E",
+                    low_foreground = "000000", 
+                    low_background = "ff0010",
                     format = "{char}{percent: 2.0%}",
-                    foreground = "000000"
+                    foreground = "000000",
+                    low_percentage = 0.15
                     ),
                 widget.Bluetooth(
                     background = "92B4A7"
-                    ),
                     ),
                 widget.TextBox("eriks", name="custom"),
                 widget.Systray(),
