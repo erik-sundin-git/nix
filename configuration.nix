@@ -35,7 +35,15 @@
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = true;
   services.blueman.enable = true;
-
+  # vm stuff
+  virtualisation.libvirtd.enable = true;
+  programs.virt-manager.enable = true;
+  security.polkit.enable = true;
+  #audio
+  hardware.pulseaudio.package = pkgs.pulseaudioFull;
+  hardware.pulseaudio.enable = true;
+  
+  
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
@@ -77,7 +85,7 @@
   users.users.erik = {
     isNormalUser = true;
     description = "erik";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "libvirtd" ];
     packages = with pkgs; [];
   };
 

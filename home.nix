@@ -3,18 +3,14 @@
  # Erik Sundin
  #
 
-{ config, pkgs, nix-colors, ... }:
+{ config, pkgs, ... }:
 
 {
-
-
-
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "erik";
   home.homeDirectory = "/home/erik";
   
-
   nixpkgs.config.allowUnfree = true;
   
   # git 
@@ -26,17 +22,6 @@
       init.defaultBranch = "main";
     };
   };
-  services.picom = {
-    enable = true;
-    activeOpacity = 0.9;
-    opacityRules = [
-	"90:glass_g = 'Alacritty'"
-   ];
-  };  
-
-programs.qutebrowser = {
-      enable = true;
-    };
 
   # vscode
   programs.vscode = {
@@ -47,6 +32,19 @@ programs.qutebrowser = {
       vscode-extensions.bbenoist.nix
     ];
   }; 
+
+  programs.fish = {
+  interactiveShellInit = ''
+    if [[ $(${pkgs.procps}/bin/ps --no-header --pid=$PPID --format=comm) != "fish" && -z ''${BASH_EXECUTION_STRING} ]]
+    then
+      shopt -q login_shell && LOGIN_OPTION='--login' || LOGIN_OPTION=""
+      exec ${pkgs.fish}/bin/fish $LOGIN_OPTION
+    fi
+  '';
+  };
+
+
+
 
   
   # This value determines the Home Manager release that your configuration is
@@ -93,8 +91,6 @@ programs.qutebrowser = {
     #   org.gradle.daemon.idletimeout=3600000
     # '';
   };
-  
-  
   # Home Manager can also manage your environment variables through
   # 'home.sessionVariables'. These will be explicitly sourced when using a
   # shell provided by Home Manager. If you don't want to manage your shell
@@ -114,6 +110,8 @@ programs.qutebrowser = {
   home.sessionVariables = {
     # EDITOR = "emacs";
   };
+
+
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;

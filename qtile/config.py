@@ -17,7 +17,7 @@ FONT_SIZE = 14
 @hook.subscribe.startup_once
 def start_once():
     home = os.path.expanduser('~')
-    subprocess.call([home + '/.config/qtile/autostart.sh'])
+    subprocess.call([home + '/nix/qtile/autostart.sh'])
 
 
 keys = [
@@ -197,10 +197,11 @@ screens = [
                 widget.Bluetooth(
                     background = "92B4A7"
                     ),
-                widget.TextBox("eriks", name="custom"),
                 widget.Systray(),
                 widget.Clock(format="%Y-%m-%d %a %H:%M %p" ),
-                widget.QuickExit(),
+                widget.QuickExit(
+                      default_text='[X]', countdown_format='[{}]'
+                    ),
             ],
             24,
             border_width=[2, 0, 2, 0],
@@ -211,11 +212,11 @@ screens = [
         top=bar.Bar(
             [
                 widget.CurrentLayout(),
-                # Add other widgets here
+                
             ],
             24,
-            border_width=[2, 0, 2, 0],
-            border_color=["28464B", "000000", "28464B", "000000"]
+            border_width=[2, 2, 2, 0],
+            border_color=["000000", "000000", "00000", "000000"]
         ),
     ),
 ]

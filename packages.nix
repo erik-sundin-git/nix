@@ -16,5 +16,10 @@
     nitrogen                 # wallpapers
     bitwarden                # passwords
     sct                      # screen color temperature
+    python311Packages.iwlib
+    pavucontrol
+    ncspot                   # ncurses based Spotify client
+    qemu
+    gcc
   ];
 }
