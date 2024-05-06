@@ -34,6 +34,8 @@
       vscode-extensions.vscodevim.vim
       vscode-extensions.jdinhlife.gruvbox
       vscode-extensions.bbenoist.nix
+      vscode-extensions.ms-vscode.cpptools
+
     ];
   }; 
 
@@ -44,9 +46,9 @@
       shopt -q login_shell && LOGIN_OPTION='--login' || LOGIN_OPTION=""
       exec ${pkgs.fish}/bin/fish $LOGIN_OPTION
     fi
+    exec neofetch
   '';
   };
-
 
 
 

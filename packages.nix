@@ -21,5 +21,7 @@
     ncspot                   # ncurses based Spotify client
     qemu
     gcc
+    htop
+    neofetch
   ];
 }
