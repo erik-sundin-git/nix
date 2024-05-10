@@ -25,8 +25,6 @@ def create_bars() -> bar.Bar:
     '''
     Create bar
     '''
-    memory_widget: widget.Memory = widget.Memory()
-    memory_widget.update = lambda: update_memory_color(memory_widget)
     newBar = bar.Bar(
             [
                 widget.Spacer(10),
@@ -54,7 +52,7 @@ def create_bars() -> bar.Bar:
                     background = "92B4A7"
                     ),
                 #widget.TextBox("eriks", name="custom"),
-                memory_widget,
+                widget.Memory(),
                 widget.Systray(),
                 widget.Clock(format="%Y-%m-%d %a %H:%M %p" ),
                 widget.QuickExit(),
@@ -66,14 +64,6 @@ def create_bars() -> bar.Bar:
         )
     return newBar
 #END create_bars()
-
-def update_memory_color(widget: widget.Memory) -> None:
-    threshold: int = 100  # Set your threshold here
-    if int(widget.text.strip('%')) >= threshold:
-        widget.foreground = 'ff0000'  # Set color to red
-    else:
-        widget.foreground = None  # Reset to default color
-
 
 keys = [
     # A list of available commands that can be bound to keys can be found
