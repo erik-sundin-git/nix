@@ -20,6 +20,61 @@ def start_once():
     subprocess.call([home + '/nix/user/qtile/autostart.sh'])
 
 
+
+def create_bars() -> bar.Bar:
+    '''
+    Create bar
+    '''
+    memory_widget: widget.Memory = widget.Memory()
+    memory_widget.update = lambda: update_memory_color(memory_widget)
+    newBar = bar.Bar(
+            [
+                widget.Spacer(10),
+                widget.CurrentLayout(fontsize=FONT_SIZE),
+                widget.Spacer(),
+                widget.GroupBox(fontsize=FONT_SIZE),
+                widget.Prompt(),
+                widget.WindowName(),
+                widget.Chord(
+                    chords_colors={
+                        "launch": ("#ff0000", "#ffffff"),
+                    },
+                    name_transform=lambda name: name.upper(),
+                ),
+                widget.Wlan(),
+                widget.Battery(
+                    background = "B6CB9E",
+                    low_foreground = "000000", 
+                    low_background = "ff0010",
+                    format = "{char}{percent: 2.0%}",
+                    foreground = "000000",
+                    low_percentage = 0.15
+                    ),
+                widget.Bluetooth(
+                    background = "92B4A7"
+                    ),
+                #widget.TextBox("eriks", name="custom"),
+                memory_widget,
+                widget.Systray(),
+                widget.Clock(format="%Y-%m-%d %a %H:%M %p" ),
+                widget.QuickExit(),
+            ],
+            30,
+            background="141414",
+            border_width=[2, 0, 2, 0],
+            border_color=["000000", "000000", "000000", "000000"]
+        )
+    return newBar
+#END create_bars()
+
+def update_memory_color(widget: widget.Memory) -> None:
+    threshold: int = 100  # Set your threshold here
+    if int(widget.text.strip('%')) >= threshold:
+        widget.foreground = 'ff0000'  # Set color to red
+    else:
+        widget.foreground = None  # Reset to default color
+
+
 keys = [
     # A list of available commands that can be bound to keys can be found
     # at https://docs.qtile.org/en/latest/manual/config/lazy.html
@@ -171,42 +226,7 @@ extension_defaults = widget_defaults.copy()
     
 screens = [
     Screen(
-        top=bar.Bar(
-            [
-                widget.Spacer(10),
-                widget.CurrentLayout(fontsize=FONT_SIZE),
-                widget.Spacer(),
-                widget.GroupBox(fontsize=FONT_SIZE),
-                widget.Prompt(),
-                widget.WindowName(),
-                widget.Chord(
-                    chords_colors={
-                        "launch": ("#ff0000", "#ffffff"),
-                    },
-                    name_transform=lambda name: name.upper(),
-                ),
-                widget.Wlan(),
-                widget.Battery(
-                    background = "B6CB9E",
-                    low_foreground = "000000", 
-                    low_background = "ff0010",
-                    format = "{char}{percent: 2.0%}",
-                    foreground = "000000",
-                    low_percentage = 0.15
-                    ),
-                widget.Bluetooth(
-                    background = "92B4A7"
-                    ),
-                widget.TextBox("eriks", name="custom"),
-                widget.Systray(),
-                widget.Clock(format="%Y-%m-%d %a %H:%M %p" ),
-                widget.QuickExit(),
-            ],
-            30,
-            background="141414",
-            border_width=[2, 0, 2, 0],
-            border_color=["000000", "000000", "000000", "000000"]
-        ),
+        top= create_bars(),
     ),
     Screen(
         top=bar.Bar(

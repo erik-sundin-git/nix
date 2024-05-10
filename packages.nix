@@ -17,11 +17,15 @@
     bitwarden                # passwords
     sct                      # screen color temperature
     python311Packages.iwlib
+    python311Packages.pyqt5-stubs
+    mypy
     pavucontrol
     ncspot                   # ncurses based Spotify client
     qemu
     gcc
     htop
     neofetch
+    gnupg
+   
   ];
 }
