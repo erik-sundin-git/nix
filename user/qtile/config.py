@@ -11,7 +11,7 @@ import os
 import subprocess
 
 mod = "mod4"
-terminal = "Alacritty"
+terminal = "alacritty"
 browser = "qutebrowser"
 FONT_SIZE = 14
 @hook.subscribe.startup_once

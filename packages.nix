@@ -26,6 +26,10 @@
     htop
     neofetch
     gnupg
+
+    # vnc
+    tigervnc
+    x11vnc
    
   ];
 }
