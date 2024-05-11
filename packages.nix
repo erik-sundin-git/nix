@@ -27,11 +27,11 @@
     neofetch
     gnupg
     emacs
+    rofi-wayland
 
-    # vnc
-    tigervnc
-    xorg.xinit
-    x11vnc
+    qbittorrent
+    polybarFull
+    remmina
    
   ];
 }

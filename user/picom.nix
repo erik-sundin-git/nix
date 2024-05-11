@@ -6,7 +6,8 @@
   services.picom = {
     enable = true;
     opacityRules = [
-      "85:class_g = 'Alacritty'" 
+      "85:class_g = 'alacritty'"
+      "85:class_g = 'emacs'"
     ];
   };
 }

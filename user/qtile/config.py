@@ -22,12 +22,13 @@ def start_once():
 
 
 
+
 def create_bars() -> bar.Bar:
     '''
     Create bar
     '''
     newBar = bar.Bar(
-            [
+                        [
                 widget.Spacer(10),
                 widget.CurrentLayout(fontsize=FONT_SIZE),
                 widget.Spacer(),
@@ -47,8 +48,7 @@ def create_bars() -> bar.Bar:
                     low_background = "ff0010",
                     format = "{char}{percent: 2.0%}",
                     foreground = "000000",
-                    low_percentage = 0.15
-                    ),
+                    low_percentage = 0.15),
                 widget.Bluetooth(
                     background = "92B4A7"
                     ),

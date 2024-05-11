@@ -9,5 +9,10 @@
   services.xserver.displayManager.sddm.enable = true;
   services.xserver.windowManager.qtile.enable = true; 
   services.picom.enable = true;
+  programs.hyprland.enable = true;
+
+  services.xrdp.enable = true;
+  services.xrdp.defaultWindowManager = "qtile start";
+  services.xrdp.openFirewall = true;
 }
 

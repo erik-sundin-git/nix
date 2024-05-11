@@ -9,6 +9,7 @@
     imports =
     [
       ./picom.nix
+      ./hyprland.nix
     ];
 
   # manage.
