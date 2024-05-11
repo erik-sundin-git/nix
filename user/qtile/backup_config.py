@@ -1,3 +1,4 @@
+# Erik Sundins config
 # Erik Sundin
 # Qtile config
 # 
@@ -11,13 +12,13 @@ import os
 import subprocess
 
 mod = "mod4"
-terminal = guess_terminal()
-browser = "firefox"
+terminal = "Alacritty"
+browser = "qutebrowser"
 FONT_SIZE = 14
 @hook.subscribe.startup_once
 def start_once():
     home = os.path.expanduser('~')
-    subprocess.call([home + '/nix/qtile/autostart.sh'])
+    subprocess.call([home + '/nix/user/qtile/autostart.sh'])
 
 
 keys = [
@@ -113,7 +114,7 @@ for vt in range(1, 8):
 groups = [Group("1"), 
           Group("2"), 
           Group("3"), 
-          Group("4"), 
+          Group("4", matches=Match(wm_class="Bitwarden"), label="util"), 
           Group("5", matches=Match(wm_class="pavucontrol"), label="musik"), 
           Group("6", matches=Match(wm_class="virt-manager"), label="vm"), 
           Group("7"), 
@@ -197,13 +198,13 @@ screens = [
                 widget.Bluetooth(
                     background = "92B4A7"
                     ),
+                widget.TextBox("eriks", name="custom"),
                 widget.Systray(),
                 widget.Clock(format="%Y-%m-%d %a %H:%M %p" ),
-                widget.QuickExit(
-                      default_text='[X]', countdown_format='[{}]'
-                    ),
+                widget.QuickExit(),
             ],
-            24,
+            30,
+            background="141414",
             border_width=[2, 0, 2, 0],
             border_color=["000000", "000000", "000000", "000000"]
         ),
@@ -212,11 +213,10 @@ screens = [
         top=bar.Bar(
             [
                 widget.CurrentLayout(),
-                
+                # Add other widgets here
             ],
             24,
-            border_width=[2, 2, 2, 0],
-            border_color=["000000", "000000", "00000", "000000"]
+            border_width=[2, 0, 2, 0],
         ),
     ),
 ]

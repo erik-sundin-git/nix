@@ -26,9 +26,11 @@
     htop
     neofetch
     gnupg
+    emacs
 
     # vnc
     tigervnc
+    xorg.xinit
     x11vnc
    
   ];

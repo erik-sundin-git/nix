@@ -14,6 +14,7 @@ mod = "mod4"
 terminal = "alacritty"
 browser = "qutebrowser"
 FONT_SIZE = 14
+
 @hook.subscribe.startup_once
 def start_once():
     home = os.path.expanduser('~')
@@ -66,8 +67,6 @@ def create_bars() -> bar.Bar:
 #END create_bars()
 
 keys = [
-    # A list of available commands that can be bound to keys can be found
-    # at https://docs.qtile.org/en/latest/manual/config/lazy.html
     # Switch between windows
     Key([mod], "h", lazy.layout.left(), desc="Move focus to left"),
     Key([mod], "l", lazy.layout.right(), desc="Move focus to right"),
@@ -176,16 +175,15 @@ for i in groups:
                 desc="Switch to group {}".format(i.name),
             ),
             # mod1 + shift + group number = switch to & move focused window to group
-            Key(
-                [mod, "shift"],
-                i.name,
-                lazy.window.togroup(i.name, switch_group=True),
-                desc="Switch to & move focused window to group {}".format(i.name),
-            ),
-            # Or, use below if you prefer not to switch to that group.
+            #:Key(
+            #    [mod, "shift"],
+            #   i.name,
+            #    lazy.window.togroup(i.name, switch_group=True),
+            #   desc="Switch to & move focused window to group {}".format(i.name),
+            #),
             # # mod1 + shift + group number = move focused window to group
-            # Key([mod, "shift"], i.name, lazy.window.togroup(i.name),
-            #     desc="move focused window to group {}".format(i.name)),
+            Key([mod, "shift"], i.name, lazy.window.togroup(i.name),
+                 desc="move focused window to group {}".format(i.name)),
         ]
     )
 
