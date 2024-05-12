@@ -16,6 +16,16 @@
   nix.settings.experimental-features = ["nix-command" "flakes"];
 
   programs.fish.enable = true;
+  services.syncthing = {
+    enable = true;
+    user = "erik";
+    dataDir = "/home/erik/Documents";
+    settings.gui = {
+      user = "erik";
+      password = "plssteal";
+    };
+  };
+  
 
 
   boot.kernelParams = [ "intel_idle.max_cstate=1" ]; # In case your laptop hangs randomly
@@ -53,6 +63,8 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
+  networking.firewall.allowedTCPPorts = [ 8384 22000 ];
+  networking.firewall.allowedUDPPorts =  [ 22000 21027 ];
 
   # Set your time zone.
   time.timeZone = "Europe/Stockholm";

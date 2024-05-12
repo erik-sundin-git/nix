@@ -41,14 +41,22 @@
   }; 
 
   programs.fish = {
-  interactiveShellInit = ''
-    if [[ $(${pkgs.procps}/bin/ps --no-header --pid=$PPID --format=comm) != "fish" && -z ''${BASH_EXECUTION_STRING} ]]
-    then
-      shopt -q login_shell && LOGIN_OPTION='--login' || LOGIN_OPTION=""
-      exec ${pkgs.fish}/bin/fish $LOGIN_OPTION
-    fi
-    exec neofetch
-  '';
+	  enable = true;
+	  interactiveShellInit = 
+    "function fish_greeting\n
+    neofetch\n
+    end\n
+    funcsave fish_greeting";
+    shellAliases = {
+     hm = "home-manager switch --file ~/nix/user/home.nix";  
+     nx = "sudo nixos-rebuild switch --flake ~/nix/#erik";
+    };  
+  };
+  programs.bash = {
+    enable = true;
+    shellAliases = {
+     hm = "home-manager switch --file ~/nix/user/home.nix";
+    };
   };
 
 

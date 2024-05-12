@@ -32,6 +32,13 @@
     qbittorrent
     polybarFull
     remmina
+
+    android-studio
+
+    trezor-suite
+    trezor-udev-rules
+    unzip
+    xfce.thunar
    
   ];
 }
