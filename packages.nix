@@ -34,6 +34,6 @@
     xfce.thunar
     waybar
     nwg-look
-   
+    hyprpaper
   ];
 }
