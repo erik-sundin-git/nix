@@ -14,11 +14,7 @@
     vscode-with-extensions
     fish                     #TODO: configure
     nitrogen                 # wallpapers
-    bitwarden                # passwords
     sct                      # screen color temperature
-    python311Packages.iwlib
-    python311Packages.pyqt5-stubs
-    mypy
     pavucontrol
     ncspot                   # ncurses based Spotify client
     qemu
@@ -34,11 +30,10 @@
     remmina
 
     android-studio
-
-    trezor-suite
-    trezor-udev-rules
     unzip
     xfce.thunar
+    waybar
+    nwg-look
    
   ];
 }

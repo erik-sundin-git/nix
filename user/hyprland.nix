@@ -37,11 +37,9 @@ $menu = rofi -show drun
 # Autostart necessary processes (like notifications daemons, status bars, etc.)
 # Or execute your favorite apps at launch like this:
 
-exec-once = polybar --config=~/nix/user/polybar/config.ini bottom
-exec-once = polybar --config=~/nix/user/polybar/config.ini top
 
 # exec-once = nm-applet &
-# exec-once = waybar & hyprpaper & firefox
+exec-once = waybar
 
 
 #############################
@@ -63,7 +61,7 @@ env = HYPRCURSOR_SIZE,24
 # https://wiki.hyprland.org/Configuring/Variables/#general
 general { 
     gaps_in = 5
-    gaps_out = 20
+    gaps_out = 5
 
     border_size = 2
 
@@ -189,10 +187,10 @@ bind = $mainMod, P, pseudo, # dwindle
 bind = $mainMod, J, togglesplit, # dwindle
 
 # Move focus with mainMod + arrow keys
-bind = $mainMod, left, movefocus, l
-bind = $mainMod, right, movefocus, r
-bind = $mainMod, up, movefocus, u
-bind = $mainMod, down, movefocus, d
+bind = $mainMod, h, movefocus, l
+bind = $mainMod, l, movefocus, r
+bind = $mainMod, k, movefocus, u
+bind = $mainMod, j, movefocus, d
 
 # Switch workspaces with mainMod + [0-9]
 bind = $mainMod, 1, workspace, 1

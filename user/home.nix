@@ -10,6 +10,7 @@
     [
       ./picom.nix
       ./hyprland.nix
+      ./waybar.nix
     ];
 
   # manage.
@@ -38,6 +39,14 @@
       vscode-extensions.ms-vscode.cpptools
 
     ];
+  };
+
+
+  services.wlsunset = {
+    enable = true;
+    latitude = "63";
+    longitude = "20"; 
+    temperature.night = 1800;
   }; 
 
   programs.fish = {

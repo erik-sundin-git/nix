@@ -25,7 +25,7 @@
       inherit system;
       modules = [ 
        ./configuration.nix
-       ./stylix_conf.nix
+#       ./stylix_conf.nix
        ./dm.nix
        ./packages.nix	
         ({ config, pkgs, ... }: {
