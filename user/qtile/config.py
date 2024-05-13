@@ -41,7 +41,7 @@ def create_bars() -> bar.Bar:
                     },
                     name_transform=lambda name: name.upper(),
                 ),
-                widget.Wlan(),
+                widget.PulseVolume(),
                 widget.Battery(
                     background = "B6CB9E",
                     low_foreground = "000000", 

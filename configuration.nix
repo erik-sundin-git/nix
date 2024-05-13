@@ -39,7 +39,6 @@
        device = "nodev";
     };
   };
-  
 
   #Bluetooth
   hardware.bluetooth.enable = true;

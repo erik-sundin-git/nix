@@ -35,5 +35,7 @@
     waybar
     nwg-look
     hyprpaper
+    
+    xorg.xev
   ];
 }
