@@ -4,12 +4,6 @@
     settings = { };
     extraConfig = ''
     
-    # This is an example Hyprland config file.
-# Refer to the wiki for more information.
-# https://wiki.hyprland.org/Configuring/Configuring-Hyprland/
-
-# Please note not all available settings / options are set here.
-# For a full list, see the wiki
 
 # You can split this configuration into multiple files
 # Create your files separately and then link them to this file like this:
@@ -33,7 +27,7 @@
 # Set programs that you use
 $terminal = alacritty
 $fileManager = thunar
-$menu = dmenu_run
+$menu = rofi -show drun
 
 
 #################
@@ -190,7 +184,7 @@ bind = $mainMod, RETURN, exec, $terminal
 bind = $mainMod, M, exit,
 bind = $mainMod, E, exec, $fileManager
 bind = $mainMod, V, togglefloating,
-bind = $mainMod, R, exec, $menu
+bind = $mainMod, D, exec, $menu
 bind = $mainMod, P, pseudo, # dwindle
 bind = $mainMod, J, togglesplit, # dwindle
 

@@ -11,10 +11,11 @@
     home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     #nix-colors.url="github:misterio77/nix-colors";
+    stylix.url = "github:danth/stylix";
 
   };
 
-  outputs = { self, nixpkgs, home-manager }: 
+  outputs = { self, nixpkgs, home-manager, stylix, ...}: 
   let
     system = "x86_64-linux";
     lib = nixpkgs.lib;
@@ -24,6 +25,7 @@
       inherit system;
       modules = [ 
        ./configuration.nix
+       ./stylix_conf.nix
        ./dm.nix
        ./packages.nix	
         ({ config, pkgs, ... }: {
