@@ -9,11 +9,15 @@ from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
 import os
 import subprocess
+import socket
 
 mod = "mod4"
 terminal = "alacritty"
 browser = "qutebrowser"
 FONT_SIZE = 14
+host_name = socket.gethostname()
+
+desktop = "nixos"
 
 @hook.subscribe.startup_once
 def start_once():
@@ -21,7 +25,14 @@ def start_once():
     subprocess.call([home + '/nix/user/qtile/autostart.sh'])
 
 
-
+def battery_widget():
+    widget.Battery(
+            background = "B6CB9E",
+            low_foreground = "000000", 
+            low_background = "ff0010",
+            format = "{char}{percent: 2.0%}",
+            foreground = "000000",
+            low_percentage = 0.15)
 
 def create_bars() -> bar.Bar:
     '''
@@ -42,13 +53,6 @@ def create_bars() -> bar.Bar:
                     name_transform=lambda name: name.upper(),
                 ),
                 widget.PulseVolume(),
-                widget.Battery(
-                    background = "B6CB9E",
-                    low_foreground = "000000", 
-                    low_background = "ff0010",
-                    format = "{char}{percent: 2.0%}",
-                    foreground = "000000",
-                    low_percentage = 0.15),
                 widget.Bluetooth(
                     background = "92B4A7"
                     ),

@@ -32,10 +32,13 @@
     android-studio
     unzip
     xfce.thunar
+    xfce.tumbler
+    xfce.ristretto
     waybar
     nwg-look
     hyprpaper
-    
+
+    python310Packages.mypy 
     xorg.xev
     mutt
   ];
