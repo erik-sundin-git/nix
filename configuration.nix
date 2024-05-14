@@ -10,6 +10,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ./services/msmtp.nix
     ];
 
   # enable flakes
@@ -121,6 +122,7 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
+  environment.variables.EDITOR = "vim";
   environment.systemPackages = with pkgs; [
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     wget

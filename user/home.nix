@@ -12,6 +12,7 @@
       ./hyprland.nix
       ./waybar.nix
       ./terminal/alacritty.nix
+      ./terminal/vim.nix
     ];
 
   # manage.

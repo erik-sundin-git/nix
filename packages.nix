@@ -37,5 +37,6 @@
     hyprpaper
     
     xorg.xev
+    mutt
   ];
 }
