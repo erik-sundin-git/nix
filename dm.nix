@@ -6,7 +6,7 @@
 
 {
   services.xserver.enable = true;
-  services.xserver.displayManager.sddm.enable = true;
+  services.displayManager.sddm.enable = true;
   services.xserver.windowManager.qtile.enable = true; 
   services.picom.enable = true;
   programs.hyprland.enable = true;

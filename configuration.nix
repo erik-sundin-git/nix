@@ -32,11 +32,12 @@
   boot.kernelParams = [ "intel_idle.max_cstate=1" ]; # In case your laptop hangs randomly
   boot.loader = {
     efi = {
-      canTouchEfiVariables = false;
+      canTouchEfiVariables = true;
+      efiSysMountPoint = "/boot/efi";
     };
     grub = {
        efiSupport = true;
-       efiInstallAsRemovable = true;
+      # efiInstallAsRemovable = true;
        device = "nodev";
     };
   };
@@ -86,8 +87,8 @@
 
   # Configure keymap in X11
   services.xserver = {
-    layout = "se";
-    xkbVariant = "";
+    xkb.layout = "se";
+    xkb.variant = "";
   };
 
   # Configure console keymap
@@ -115,6 +116,13 @@
   };
   hardware.pulseaudio.extraConfig = "load-module module-native-protocol-tcp auth-ip-acl=127.0.0.1";
 
+
+
+  services.plex = {
+    enable = true;
+    openFirewall = true;
+  #  user="plex";
+  };
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
 
   # Allow unfree packages
