@@ -45,7 +45,7 @@ def create_bars() -> bar.Bar:
                 widget.Spacer(),
                 widget.GroupBox(fontsize=FONT_SIZE),
                 widget.Prompt(),
-                widget.WindowName(),
+                widget.Spacer(),
                 widget.Chord(
                     chords_colors={
                         "launch": ("#ff0000", "#ffffff"),
@@ -57,7 +57,9 @@ def create_bars() -> bar.Bar:
                     background = "92B4A7"
                     ),
                 #widget.TextBox("eriks", name="custom"),
-                widget.Memory(),
+                widget.Memory(
+                    background = "B6CB9E"
+                ),
                 widget.Systray(),
                 widget.Clock(format="%Y-%m-%d %a %H:%M %p" ),
                 widget.QuickExit(),

@@ -41,5 +41,6 @@
     python310Packages.mypy 
     xorg.xev
     mutt
+    zathura
   ];
 }

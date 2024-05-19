@@ -39,7 +39,7 @@ $menu = rofi -show drun
 
 
 # exec-once = nm-applet &
-exec-once = waybar
+# exec-once = waybar
 
 
 #############################
