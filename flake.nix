@@ -26,7 +26,7 @@
       modules = [ 
        ./configuration.nix
 #       ./stylix_conf.nix
-       ./programs/tor.nix
+#       ./programs/tor.nix
        ./dm.nix
        ./packages.nix	
         ({ config, pkgs, ... }: {

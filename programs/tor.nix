@@ -1,5 +1,5 @@
 {pkgs, lib, ...}:
-
+{
 services.tor = {
   enable = true;
   openFirewall = true;
@@ -15,5 +15,5 @@ services.tor = {
     BandWidthRate = "1 MBytes";
   };
 };
-
+}
 
