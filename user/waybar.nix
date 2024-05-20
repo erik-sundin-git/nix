@@ -18,7 +18,7 @@
       }
     '';
     settings = [{
-      height = 30;
+      height = 20;
       layer = "top";
       position = "top";
       tray = { spacing = 10; };

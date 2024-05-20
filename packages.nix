@@ -10,6 +10,7 @@
     qutebrowser
     alacritty
     git
+    tor-browser-bundle-bin
     dmenu
     vscode-with-extensions
     fish                     #TODO: configure
@@ -41,5 +42,6 @@
     python310Packages.mypy 
     xorg.xev
     mutt
+    zathura
   ];
 }
