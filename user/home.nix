@@ -14,6 +14,7 @@
       ./terminal/alacritty.nix
  #     ./terminal/vim.nix
       ./terminal/neovim.nix
+	  ./terminal/fish.nix
     ];
 
   # manage.
@@ -45,19 +46,6 @@
   };
 
 
-
-  programs.fish = {
-	  enable = true;
-	  interactiveShellInit = 
-    "function fish_greeting\n
-    neofetch\n
-    end\n
-    funcsave fish_greeting";
-    shellAliases = {
-     hm = "home-manager switch --file ~/nix/user/home.nix";  
-     nx = "sudo nixos-rebuild switch --flake ~/nix/#erik";
-    };  
-  };
   programs.bash = {
     enable = true;
     shellAliases = {
