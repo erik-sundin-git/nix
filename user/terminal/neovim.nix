@@ -1,6 +1,7 @@
 { pkgs, lib, ... }:
 
 {
+	
   programs.neovim = {
     enable = true;
 	viAlias = true;
@@ -8,6 +9,7 @@
   };
   programs.neovim.extraConfig = 
 ''
+
   filetype plugin indent on
   syntax on
   set title
@@ -25,10 +27,19 @@
   nnoremap <Leader>cc :set colorcolumn=80<cr>
   nnoremap <Leader>ncc :set colorcolumn-=80<cr>
   set mouse=a
-'';
 
+
+'';
 	programs.neovim.plugins = [
 		pkgs.vimPlugins.vim-prettier
+		{
+			plugin = pkgs.vimPlugins.nvim-autopairs;
+			config =
+			''
+
+			'';
+		}
+			pkgs.vimPlugins.coc-clangd
 		{
 			plugin = pkgs.vimPlugins.coc-nvim;
 			config = 
@@ -43,6 +54,10 @@ inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
                               \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 	
 
+function! CheckBackspace() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
 			'';
 		}
 	];

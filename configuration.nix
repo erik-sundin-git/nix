@@ -16,6 +16,8 @@
   # enable flakes
   nix.settings.experimental-features = ["nix-command" "flakes"];
 
+  services.trezord.enable = true;
+
   programs.fish.enable = true;
   services.syncthing = {
     enable = true;

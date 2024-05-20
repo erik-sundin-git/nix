@@ -8,6 +8,11 @@
   environment.systemPackages = with pkgs; [
     firefox                  #TODO: add custom firefox config
 	clang-tools
+
+	trezor-suite
+	trezor-udev-rules
+	monero-gui
+	
     qutebrowser
     alacritty
 	pinentry
