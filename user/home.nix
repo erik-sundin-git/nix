@@ -9,10 +9,11 @@
     imports =
     [
       ./picom.nix
-      ./hyprland.nix
-      ./waybar.nix
+ #     ./hyprland.nix
+ #     ./waybar.nix
       ./terminal/alacritty.nix
-      ./terminal/vim.nix
+ #     ./terminal/vim.nix
+      ./terminal/neovim.nix
     ];
 
   # manage.
@@ -44,12 +45,6 @@
   };
 
 
-  services.wlsunset = {
-    enable = true;
-    latitude = "63";
-    longitude = "20"; 
-    temperature.night = 1800;
-  }; 
 
   programs.fish = {
 	  enable = true;

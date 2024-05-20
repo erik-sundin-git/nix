@@ -27,7 +27,10 @@
     };
   };
   
-
+  programs.gnupg.agent = {
+		  enable = true;
+		  pinentryPackage = pkgs.pinentry-curses;
+	  };
 
   boot.kernelParams = [ "intel_idle.max_cstate=1" ]; # In case your laptop hangs randomly
   boot.loader = {
@@ -117,12 +120,6 @@
   hardware.pulseaudio.extraConfig = "load-module module-native-protocol-tcp auth-ip-acl=127.0.0.1";
 
 
-
-  services.plex = {
-    enable = true;
-    openFirewall = true;
-  #  user="plex";
-  };
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
 
   # Allow unfree packages
@@ -130,9 +127,8 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.variables.EDITOR = "vim";
+  environment.variables.EDITOR = "nvim";
   environment.systemPackages = with pkgs; [
-    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     wget
   ];
   system.stateVersion = "23.11"; # Did you read the comment?

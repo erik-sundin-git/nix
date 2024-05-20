@@ -7,9 +7,13 @@
 { pkgs, ...}:  {
   environment.systemPackages = with pkgs; [
     firefox                  #TODO: add custom firefox config
+	clang-tools
     qutebrowser
     alacritty
+	pinentry
     git
+	nodejs
+	nodePackages.prettier
     tor-browser-bundle-bin
     dmenu
     vscode-with-extensions
@@ -22,12 +26,10 @@
     gcc
     htop
     neofetch
-    gnupg
     emacs
     rofi-wayland
 
     qbittorrent
-    polybarFull
     remmina
 
     android-studio
@@ -35,10 +37,7 @@
     xfce.thunar
     xfce.tumbler
     xfce.ristretto
-    waybar
     nwg-look
-    hyprpaper
-
     python310Packages.mypy 
     xorg.xev
     mutt
