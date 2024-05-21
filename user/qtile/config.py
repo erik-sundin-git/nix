@@ -14,6 +14,7 @@ import socket
 mod = "mod4"
 terminal = "alacritty"
 browser = "qutebrowser"
+menu = "rofi -show drun"
 FONT_SIZE = 14
 host_name = socket.gethostname()
 
@@ -103,7 +104,7 @@ keys = [
         desc="Toggle between split and unsplit sides of stack",
     ),
     Key([mod], "Return", lazy.spawn(terminal+" -e fish"), desc="Launch terminal"),
-    Key([mod], "d", lazy.spawn("dmenu_run"), desc="Launch dmenu"),
+    Key([mod], "d", lazy.spawn(menu), desc="Launch menu"),
     Key([mod, "shift"], "f", lazy.spawn(browser), desc="Launch browser"),
     # Toggle between different layouts as defined below
     Key([mod], "tab", lazy.next_layout(), desc="Toggle between layouts"),

@@ -15,6 +15,7 @@
  #     ./terminal/vim.nix
       ./terminal/neovim.nix
 	  ./terminal/fish.nix
+	  ./rofi.nix
     ];
 
   # manage.

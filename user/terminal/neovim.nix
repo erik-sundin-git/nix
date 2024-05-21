@@ -1,10 +1,8 @@
 { pkgs, lib, ... }:
 
 {
-	
   programs.neovim = {
     enable = true;
-	viAlias = true;
 	vimAlias = true;
   };
   programs.neovim.extraConfig = 
@@ -27,8 +25,6 @@
   nnoremap <Leader>cc :set colorcolumn=80<cr>
   nnoremap <Leader>ncc :set colorcolumn-=80<cr>
   set mouse=a
-
-
 '';
 	programs.neovim.plugins = [
 		pkgs.vimPlugins.vim-prettier

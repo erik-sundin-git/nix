@@ -15,6 +15,8 @@
      # ssh aliases
 	 ssh-desktop = "ssh erik@192.168.1.171";
 	 ssh-plex = "ssh erik@192.168.1.145";
+
+	 nv = "nix run ~/neovim/.#";
     };  
   };
 }
