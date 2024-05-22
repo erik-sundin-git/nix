@@ -224,7 +224,7 @@ for i in groups:
     )
 
 layouts = [
-    layout.Columns(border_focus="#28464B", margin=2),
+    layout.Columns(border_focus="#bb00ff", margin=2),
     layout.MonadTall(border_focus="#28464B", margin=4),
     layout.Max(),
     # layout.MonadWide(border_focus="#28464B"),
