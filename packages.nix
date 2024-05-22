@@ -8,6 +8,7 @@
   environment.systemPackages = with pkgs; [
     firefox                  #TODO: add custom firefox config
 	clang-tools
+	gnumake
 
 	trezor-suite
 	trezor-udev-rules
