@@ -28,6 +28,7 @@
 #       ./stylix_conf.nix
 #       ./programs/tor.nix
        ./dm.nix
+       ./steam.nix
        ./packages.nix	
         ({ config, pkgs, ... }: {
          })

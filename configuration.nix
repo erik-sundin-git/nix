@@ -69,7 +69,7 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
-  networking.firewall.allowedTCPPorts = [ 8384 22000 ];
+  networking.firewall.allowedTCPPorts = [ 8384 22000 3389];
   networking.firewall.allowedUDPPorts =  [ 22000 21027 ];
 
   # Set your time zone.

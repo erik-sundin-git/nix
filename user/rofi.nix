@@ -4,5 +4,6 @@
 		enable = true;
 		location = "top";
 		theme = "DarkBlue";
+		terminal = "alacritty";
 	};
 }

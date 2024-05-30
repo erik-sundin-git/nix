@@ -65,7 +65,6 @@ def create_bars() -> bar.Bar:
             widget.Spacer(),
             widget.GroupBox(fontsize=FONT_SIZE),
             widget.Prompt(),
-            widget.Spacer(),
             widget.Chord(
                 chords_colors={
                     "launch": ("#ff0000", "#ffffff"),
@@ -189,7 +188,11 @@ groups = [
     Group("2"),
     Group("3"),
     Group("4", matches=Match(wm_class="Bitwarden"), label="util"),
-    Group("5", matches=Match(wm_class="pavucontrol"), label="musik"),
+    Group(
+        "5",
+        matches=[Match(wm_class="pavucontrol"), Match(title="ncspot")],
+        label="musik",
+    ),
     Group("6", matches=Match(wm_class="virt-manager"), label="vm"),
     Group("7"),
     Group("8"),
@@ -225,13 +228,14 @@ for i in groups:
 
 layouts = [
     layout.Columns(border_focus="#bb00ff", margin=2),
-    layout.MonadTall(border_focus="#28464B", margin=4),
+    # layout.MonadTall(border_focus="#28464B", margin=4),
     layout.Max(),
     # layout.MonadWide(border_focus="#28464B"),
     # Try more layouts by unleashing below layouts.
     # layout.Stack(num_stacks=2),
     # layout.Bsp
-    layout.Matrix(),
+    # layout.Matrix(),
+    layout.MonadThreeCol(ratio=0.6),
     # layout.RatioTile(),
     # layout.Tile(),
     # layout.TreeTab(),
@@ -255,6 +259,7 @@ screens = [
         top=bar.Bar(
             [
                 widget.CurrentLayout(),
+                widget.Pomodoro(),
                 # Add other widgets here
             ],
             24,

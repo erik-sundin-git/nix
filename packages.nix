@@ -7,9 +7,10 @@
   environment.systemPackages = with pkgs; [
     firefox #TODO: add custom firefox config
     chromium
+	jq
     clang-tools
     gnumake
-
+    gdb
     trezor-suite
     trezor-udev-rules
     monero-gui
