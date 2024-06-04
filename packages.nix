@@ -33,6 +33,7 @@
     gcc
     htop
     neofetch
+    discord
     emacs
     rofi-wayland
 

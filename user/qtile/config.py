@@ -167,6 +167,8 @@ keys = [
     ),
     Key([mod], "right", lazy.to_screen(1), desc="Move focus to next monitor"),
     Key([mod], "left", lazy.to_screen(0), desc="Move focus to previous monitor"),
+    Key([mod, "control"], "right", lazy.layout.next_split()),
+    Key([mod, "control"], "left", lazy.layout.next_split()),
 ]
 
 # Add key bindings to switch VTs in Wayland.
@@ -226,6 +228,26 @@ for i in groups:
         ]
     )
 
+splits = [
+    {
+        "name": "LeftScreen",
+        "rect": (0, 0, 0.255813953, 1),  # Left half of the screen
+        "layout": layout.Columns(),  # Example layout for the left screen
+        "matches": [
+            Match(wm_class="firefox")
+        ],  # Optional: Only Firefox windows will open in this split
+    },
+    {
+        "name": "RightScreen",
+        "rect": (0.255813953, 0, 0.744186046, 1),  # Right half of the screen
+        "layout": layout.Columns(),  # Example layout for the right screen
+        "matches": [
+            Match(wm_class="Steam")
+        ],  # Optional: Only VSCode windows will open in this split
+    },
+]
+
+
 layouts = [
     layout.Columns(border_focus="#bb00ff", margin=2),
     # layout.MonadTall(border_focus="#28464B", margin=4),
@@ -236,6 +258,7 @@ layouts = [
     # layout.Bsp
     # layout.Matrix(),
     layout.MonadThreeCol(ratio=0.6),
+    layout.ScreenSplit(splits=splits),
     # layout.RatioTile(),
     # layout.Tile(),
     # layout.TreeTab(),
