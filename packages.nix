@@ -7,6 +7,8 @@
   environment.systemPackages = with pkgs; [
     firefox #TODO: add custom firefox config
     chromium
+    winetricks
+    protontricks
 	jq
     clang-tools
     gnumake

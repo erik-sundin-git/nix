@@ -9,7 +9,7 @@
     port = "587";
     from = "mail@eriksundin.com";
     user = "mail@eriksundin.com";
-    password = "SKUDAW4NR88CP8DE";
+    password = "";
   };
 };
 }
