@@ -13,6 +13,7 @@ import socket
 
 mod = "mod4"
 terminal = "alacritty"
+#terminal = "kitty"
 browser = "qutebrowser"
 menu = "rofi -show drun"
 FONT_SIZE = 14

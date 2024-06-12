@@ -8,6 +8,8 @@
     opacityRules = [
       "85:class_g = 'alacritty'"
       "85:class_g = 'emacs'"
+      "85:class_g = 'kitty'"
+
     ];
   };
 }

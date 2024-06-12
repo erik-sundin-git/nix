@@ -7,6 +7,8 @@
   environment.systemPackages = with pkgs; [
     firefox #TODO: add custom firefox config
     chromium
+    kitty
+    gamemode
     winetricks
     protontricks
 	jq
@@ -36,7 +38,6 @@
     htop
     neofetch
     discord
-    emacs
     rofi-wayland
 
     qbittorrent
@@ -48,7 +49,6 @@
     xfce.tumbler
     xfce.ristretto
     nwg-look
-    python310Packages.mypy
     xorg.xev
     mutt
     zathura

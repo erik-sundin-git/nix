@@ -3,15 +3,16 @@
 #
 #
 #
-
-{ config, pkgs, ... }:
-
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      ./services/msmtp.nix
-    ];
+  config,
+  pkgs,
+  ...
+}: {
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+    ./services/msmtp.nix
+  ];
 
   # enable flakes
   nix.settings.experimental-features = ["nix-command" "flakes"];
@@ -28,22 +29,22 @@
       password = "plssteal";
     };
   };
-  
-  programs.gnupg.agent = {
-		  enable = true;
-		  pinentryPackage = pkgs.pinentry-curses;
-	  };
 
-  boot.kernelParams = [ "intel_idle.max_cstate=1" ]; # In case your laptop hangs randomly
+  programs.gnupg.agent = {
+    enable = true;
+    pinentryPackage = pkgs.pinentry-curses;
+  };
+
+  boot.kernelParams = ["intel_idle.max_cstate=1"]; # In case your laptop hangs randomly
   boot.loader = {
     efi = {
       canTouchEfiVariables = true;
       efiSysMountPoint = "/boot/efi";
     };
     grub = {
-       efiSupport = true;
+      efiSupport = true;
       # efiInstallAsRemovable = true;
-       device = "nodev";
+      device = "nodev";
     };
   };
 
@@ -58,8 +59,7 @@
   #audio
   hardware.pulseaudio.package = pkgs.pulseaudioFull;
   hardware.pulseaudio.enable = true;
-  
-  
+
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
@@ -69,8 +69,8 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
-  networking.firewall.allowedTCPPorts = [ 8384 22000 3389];
-  networking.firewall.allowedUDPPorts =  [ 22000 21027 ];
+  networking.firewall.allowedTCPPorts = [8384 22000 3389];
+  networking.firewall.allowedUDPPorts = [22000 21027];
 
   # Set your time zone.
   time.timeZone = "Europe/Stockholm";
@@ -102,25 +102,24 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.erik = {
     isNormalUser = true;
+    shell = pkgs.fish;
     description = "erik";
-    extraGroups = [ "networkmanager" "wheel" "libvirtd" ];
+    extraGroups = ["networkmanager" "wheel" "libvirtd"];
     packages = with pkgs; [];
   };
-
 
   # MPD
   services.mpd = {
     enable = true;
     extraConfig = ''
-	audio_output {
-          type "pulse"
-	  name "pulseaudio"
-	  server "127.0.0.1"
-        }
+      audio_output {
+               type "pulse"
+        name "pulseaudio"
+        server "127.0.0.1"
+             }
     '';
   };
   hardware.pulseaudio.extraConfig = "load-module module-native-protocol-tcp auth-ip-acl=127.0.0.1";
-
 
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
 
@@ -134,5 +133,4 @@
     wget
   ];
   system.stateVersion = "23.11"; # Did you read the comment?
-
 }
