@@ -3,7 +3,7 @@
  # Erik Sundin
  #
 
-{ config, pkgs, ... }:
+{ config, inputs, pkgs, ... }:
 
 {
     imports =
@@ -12,7 +12,7 @@
       ./terminal/kitty.nix
       ./terminal/alacritty.nix
  #     ./terminal/vim.nix
-      ./terminal/neovim.nix
+    #  ./terminal/neovim.nix
 	  ./terminal/fish.nix
 	  ./rofi.nix
     ];
