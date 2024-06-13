@@ -42,6 +42,7 @@
 
     qbittorrent
     remmina
+    mypy
 
     android-studio
     unzip

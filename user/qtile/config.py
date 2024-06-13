@@ -13,7 +13,7 @@ import socket
 
 mod = "mod4"
 terminal = "alacritty"
-#terminal = "kitty"
+# terminal = "kitty"
 browser = "qutebrowser"
 menu = "rofi -show drun"
 FONT_SIZE = 14
@@ -241,7 +241,7 @@ splits = [
     {
         "name": "RightScreen",
         "rect": (0.255813953, 0, 0.744186046, 1),  # Right half of the screen
-        "layout": layout.Columns(),  # Example layout for the right screen
+        "layout": layout.TreeTab(),  # Example layout for the right screen
         "matches": [
             Match(wm_class="Steam")
         ],  # Optional: Only VSCode windows will open in this split
@@ -259,10 +259,11 @@ layouts = [
     # layout.Bsp
     # layout.Matrix(),
     layout.MonadThreeCol(ratio=0.6),
-    layout.ScreenSplit(splits=splits),
+    layout.ScreenSplit(
+        splits= [{'layout': layout.Max(),'name': 'top','rect': (0, 0, 1, 0.5)}, {'layout': layout.Columns,'name': 'bottom', 'rect': (0, 0.5, 1, 0.5)}]),
     # layout.RatioTile(),
     # layout.Tile(),
-    # layout.TreeTab(),
+    layout.TreeTab(),
     # layout.VerticalTile(),
     # layout.Zoomy(),
 ]
