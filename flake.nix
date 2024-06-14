@@ -2,7 +2,6 @@
 # Erik Sundin
 #
 #
-#
 {
   description = "Nixos config";
 
@@ -22,11 +21,12 @@
     self,
     nixpkgs,
     home-manager,
+    nvim,
     ...
   }: let
     systemSettings = {
       system = "x86_64-linux"; # system arch
-      hardware = "desktop";
+      hardware = "desktop"; # sets hardware-configuration
       hostname = "nixos"; # hostname
       profile = "personal"; # select a profile defined from my profiles directory
       timezone = "Europe/Stockholm"; # select timezone
@@ -78,6 +78,7 @@
       erik = lib.nixosSystem {
         modules = [
           (./. + "/systems" + ("/" + systemSettings.hardware) + "/hardware-configuration.nix")
+          nvim.neovimConfiguration
           ./configuration.nix
           ./dm.nix
           ./steam.nix
