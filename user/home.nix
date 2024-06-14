@@ -1,4 +1,3 @@
-<<<<<<< HEAD
  # home-manager
  #
  # Erik Sundin
@@ -10,6 +9,8 @@
     imports =
     [
       ./picom.nix
+      ./hyprland.nix
+      ./waybar.nix
       ./terminal/kitty.nix
       ./terminal/alacritty.nix
  #     ./terminal/vim.nix
@@ -17,26 +18,6 @@
 	  ./terminal/fish.nix
 	  ./rofi.nix
     ];
-=======
-# home-manager
-#
-# Erik Sundin
-#
-{
-  config,
-  pkgs,
-  ...
-}: {
-  imports = [
-    ./picom.nix
-    ./terminal/alacritty.nix
-    ./git.nix
-    ./vscode.nix
-    ./terminal/neovim.nix
-    ./terminal/fish.nix
-    ./rofi.nix
-  ];
->>>>>>> c0aea2d08c6d986377f05ef54e7005dd2a3e50a2
 
   # manage.
   home.username = "erik";
@@ -49,13 +30,10 @@
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
-<<<<<<< HEAD
   home.packages = [
     # pkgs.hello
 
   ];
-=======
->>>>>>> c0aea2d08c6d986377f05ef54e7005dd2a3e50a2
 
   # dotfiles
   home.file = {

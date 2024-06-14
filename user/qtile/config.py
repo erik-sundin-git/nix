@@ -12,8 +12,8 @@ import subprocess
 import socket
 
 mod = "mod4"
-terminal = "alacritty"
-# terminal = "kitty"
+# terminal = "alacritty"
+terminal = "kitty"
 browser = "qutebrowser"
 menu = "rofi -show drun"
 FONT_SIZE = 14
@@ -229,24 +229,6 @@ for i in groups:
         ]
     )
 
-splits = [
-    {
-        "name": "LeftScreen",
-        "rect": (0, 0, 0.255813953, 1),  # Left half of the screen
-        "layout": layout.Columns(),  # Example layout for the left screen
-        "matches": [
-            Match(wm_class="firefox")
-        ],  # Optional: Only Firefox windows will open in this split
-    },
-    {
-        "name": "RightScreen",
-        "rect": (0.255813953, 0, 0.744186046, 1),  # Right half of the screen
-        "layout": layout.TreeTab(),  # Example layout for the right screen
-        "matches": [
-            Match(wm_class="Steam")
-        ],  # Optional: Only VSCode windows will open in this split
-    },
-]
 
 
 layouts = [
@@ -254,13 +236,10 @@ layouts = [
     # layout.MonadTall(border_focus="#28464B", margin=4),
     layout.Max(),
     # layout.MonadWide(border_focus="#28464B"),
-    # Try more layouts by unleashing below layouts.
     # layout.Stack(num_stacks=2),
     # layout.Bsp
     # layout.Matrix(),
     layout.MonadThreeCol(ratio=0.6),
-    layout.ScreenSplit(
-        splits= [{'layout': layout.Max(),'name': 'top','rect': (0, 0, 1, 0.5)}, {'layout': layout.Columns,'name': 'bottom', 'rect': (0, 0.5, 1, 0.5)}]),
     # layout.RatioTile(),
     # layout.Tile(),
     layout.TreeTab(),

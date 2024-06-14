@@ -26,6 +26,7 @@
   }: let
     systemSettings = {
       system = "x86_64-linux"; # system arch
+      hardware = "desktop";
       hostname = "nixos"; # hostname
       profile = "personal"; # select a profile defined from my profiles directory
       timezone = "Europe/Stockholm"; # select timezone
@@ -76,9 +77,8 @@
     nixosConfigurations = {
       erik = lib.nixosSystem {
         modules = [
+          (./. + "/systems" + ("/" + systemSettings.hardware) + "/hardware-configuration.nix")
           ./configuration.nix
-          #       ./stylix_conf.nix
-          #       ./programs/tor.nix
           ./dm.nix
           ./steam.nix
           ./packages.nix
