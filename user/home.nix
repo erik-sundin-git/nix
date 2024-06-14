@@ -1,3 +1,4 @@
+<<<<<<< HEAD
  # home-manager
  #
  # Erik Sundin
@@ -16,53 +17,45 @@
 	  ./terminal/fish.nix
 	  ./rofi.nix
     ];
+=======
+# home-manager
+#
+# Erik Sundin
+#
+{
+  config,
+  pkgs,
+  ...
+}: {
+  imports = [
+    ./picom.nix
+    ./terminal/alacritty.nix
+    ./git.nix
+    ./vscode.nix
+    ./terminal/neovim.nix
+    ./terminal/fish.nix
+    ./rofi.nix
+  ];
+>>>>>>> c0aea2d08c6d986377f05ef54e7005dd2a3e50a2
 
   # manage.
   home.username = "erik";
   home.homeDirectory = "/home/erik";
-  
+
   nixpkgs.config.allowUnfree = true;
-  
-  # git 
-  programs.git = {
-   enable = true;
-   userName = "Erik Sundin";
-   userEmail = "mail@eriksundin.com";
-   extraConfig = {
-      init.defaultBranch = "main";
-    };
-  };
-
-  # vscode
-  programs.vscode = {
-    enable = true;
-    extensions = with pkgs; [
-      vscode-extensions.vscodevim.vim
-      vscode-extensions.jdinhlife.gruvbox
-      vscode-extensions.bbenoist.nix
-      vscode-extensions.ms-vscode.cpptools
-
-    ];
-  };
-
-
-  programs.bash = {
-    enable = true;
-    shellAliases = {
-     hm = "home-manager switch --file ~/nix/user/home.nix";
-    };
-  };
-
 
 # DO NOT CHANGE #
   home.stateVersion = "23.11"; # Please read the comment before changing.
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
+<<<<<<< HEAD
   home.packages = [
     # pkgs.hello
 
   ];
+=======
+>>>>>>> c0aea2d08c6d986377f05ef54e7005dd2a3e50a2
 
   # dotfiles
   home.file = {
@@ -87,8 +80,6 @@
   home.sessionVariables = {
     # EDITOR = "emacs";
   };
-
-
 
   # Let Home Manager install and manage itself.
   programs.home-manager = {
