@@ -6,6 +6,8 @@
   programs.alacritty.enable = true;
   programs.alacritty.settings = {
     window.opacity = lib.mkForce 0.75;
-    primary.background = "#000000";
+    shell.program = "/home/erik/.nix-profile/bin/fish";
+
+    scrolling.multiplier = 5;
   };
 }

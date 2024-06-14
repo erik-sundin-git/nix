@@ -12,8 +12,8 @@ import subprocess
 import socket
 
 mod = "mod4"
-# terminal = "alacritty"
-terminal = "kitty"
+terminal = "alacritty"
+#terminal = "kitty"
 browser = "qutebrowser"
 menu = "rofi -show drun"
 FONT_SIZE = 14
@@ -75,7 +75,6 @@ def create_bars() -> bar.Bar:
             battery_widget() if host_name == "LENOVO" else widget.Spacer(),
             widget.PulseVolume(),
             widget.Bluetooth(background="92B4A7"),
-            # widget.TextBox("eriks", name="custom"),
             widget.Memory(background="B6CB9E"),
             widget.Systray(),
             widget.Clock(format="%Y-%m-%d %a %H:%M %p"),
