@@ -9,8 +9,8 @@
       "85:class_g = 'alacritty'"
       "85:class_g = 'emacs'"
       "85:class_g = 'kitty'"
-      "85:class_g = 'qutebrowser'"
-
+      "90class_g = 'qutebrowser'"
+      "85:class_g = 'Zathura'"
 
     ];
   };

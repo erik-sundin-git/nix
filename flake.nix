@@ -78,7 +78,6 @@
       erik = lib.nixosSystem {
         modules = [
           (./. + "/systems" + ("/" + systemSettings.hardware) + "/hardware-configuration.nix")
-          nvim.neovimConfiguration
           ./configuration.nix
           ./dm.nix
           ./steam.nix
