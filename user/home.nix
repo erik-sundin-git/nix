@@ -9,11 +9,11 @@
     imports =
     [
       ./picom.nix
-      ./hyprland.nix
+      #./hyprland.nix
       ./waybar.nix
       ./terminal/kitty.nix
       ./terminal/alacritty.nix
- #     ./terminal/vim.nix
+      ./terminal/vim.nix
     #  ./terminal/neovim.nix
 	  ./terminal/fish.nix
 	  ./rofi.nix
@@ -38,6 +38,7 @@
   # dotfiles
   home.file = {
     ".config/qtile/config.py".source = qtile/config.py;
+    ".config/hypr/hyprland/hyperland.conf".source = hyprland/hyprland.conf;
   };
   # Home Manager can also manage your environment variables through
   # 'home.sessionVariables'. These will be explicitly sourced when using a
