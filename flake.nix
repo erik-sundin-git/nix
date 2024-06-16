@@ -77,11 +77,13 @@
     nixosConfigurations = {
       erik = lib.nixosSystem {
         modules = [
+          #TODO: maybe move import to a modules.nix file?
           (./. + "/systems" + ("/" + systemSettings.hardware) + "/hardware-configuration.nix")
           ./configuration.nix
-          ./dm.nix
           ./steam.nix
           ./packages.nix
+          ./system/WM/qtile/default.nix
+          ./system/sddm/default.nix
         ];
       };
     };
