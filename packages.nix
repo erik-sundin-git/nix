@@ -14,6 +14,7 @@
 	jq
     clang-tools
     gnumake
+    ardour
     gdb
     trezor-suite
     trezor-udev-rules

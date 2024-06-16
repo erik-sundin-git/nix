@@ -138,5 +138,9 @@
   environment.systemPackages = with pkgs; [
     wget
   ];
+
+    security.sudo.extraConfig = ''
+    erik  ALL=(ALL) NOPASSWD: ${pkgs.systemd}/bin/systemctl
+    '';
   system.stateVersion = "23.11"; # Did you read the comment?
 }
