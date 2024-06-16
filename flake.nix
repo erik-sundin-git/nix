@@ -78,9 +78,9 @@
       erik = lib.nixosSystem {
         modules = [
           #TODO: maybe move import to a modules.nix file?
-          (./. + "/systems" + ("/" + systemSettings.hardware) + "/hardware-configuration.nix")
+          (./. + "/hardwares" + ("/" + systemSettings.hardware) + "/hardware-configuration.nix")
           ./configuration.nix
-          ./steam.nix
+          ./programs/steam.nix
           ./packages.nix
           ./system/WM/qtile/default.nix
           ./system/sddm/default.nix

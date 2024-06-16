@@ -1,23 +1,22 @@
- # home-manager
- #
- # Erik Sundin
- #
-
-{ config, inputs, pkgs, ... }:
-
+# home-manager
+#
+# Erik Sundin
+#
 {
-    imports =
-    [
-      ./picom.nix
-      #./hyprland.nix
-      ./waybar.nix
-      ./terminal/kitty.nix
-      ./terminal/alacritty.nix
-      ./terminal/vim.nix
+  config,
+  inputs,
+  pkgs,
+  ...
+}: {
+  imports = [
+    ./picom.nix
+    ./terminal/kitty.nix
+    ./terminal/alacritty.nix
+    ./terminal/vim.nix
     #  ./terminal/neovim.nix
-	  ./terminal/fish.nix
-	  ./rofi.nix
-    ];
+    ./terminal/fish.nix
+    ./rofi.nix
+  ];
 
   # manage.
   home.username = "erik";
@@ -25,14 +24,13 @@
 
   nixpkgs.config.allowUnfree = true;
 
-# DO NOT CHANGE #
+  # DO NOT CHANGE #
   home.stateVersion = "23.11"; # Please read the comment before changing.
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = [
     # pkgs.hello
-
   ];
 
   # dotfiles
@@ -64,5 +62,4 @@
   programs.home-manager = {
     enable = true;
   };
-
 }

@@ -13,6 +13,7 @@
 
   # enable flakes
   nix.settings.experimental-features = ["nix-command" "flakes"];
+  nix.settings.auto-optimise-store = true;
 
   services.trezord.enable = true;
 
@@ -42,7 +43,15 @@
       efiSupport = true;
       # efiInstallAsRemovable = true;
       device = "nodev";
+      configurationLimit = 15;
     };
+  };
+
+  # Garbage collection
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 1w";
   };
 
   #Bluetooth
