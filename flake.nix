@@ -20,11 +20,12 @@
     musnix,
     ...
   }: let
+
+    # TODO: actually use all variables.
     systemSettings = {
       system = "x86_64-linux"; # system arch
-      hardware = "desktop"; # sets hardware-configuration
-      hostname = "nixos"; # hostname
-      profile = "personal"; # select a profile defined from my profiles directory
+      hardware = "laptop"; # sets hardware-configuration
+      hostname = "lenovo-yoga"; # hostname TODO: make automatic.
       timezone = "Europe/Stockholm"; # select timezone
       locale = "en_US.UTF-8"; # select locale
       bootMode = "uefi"; # uefi or bios
@@ -41,9 +42,9 @@
     nixosConfigurations = {
       erik = lib.nixosSystem {
         modules = [
-          #TODO: maybe move import to a modules.nix file?
+          #TODO: maybe move imports to a modules.nix file?
           (./. + "/hardwares" + ("/" + systemSettings.hardware) + "/hardware-configuration.nix")
-          ./configuration.nix
+          (./. + "/hosts" + ("/" + systemSettings.hostname) + "/configuration.nix")
           ./programs/steam.nix
           ./packages.nix
           ./system/WM/qtile/default.nix
