@@ -5,54 +5,60 @@
 #
 {pkgs, ...}: {
   environment.systemPackages = with pkgs; [
-    firefox #TODO: add custom firefox config
+    ### Browsers ### 
+    firefox 
     chromium
-    kitty
+    qutebrowser
+    tor-browser-bundle-bin
+
+    ### Music and audio ###
+    ardour
+    ncspot # ncurses based Spotify client
+    pavucontrol
+    
+    ### Looks/theming ###
+    nitrogen # wallpapers
+    nwg-look
+
+
+    ### Gaming ### 
+    discord
     gamemode
     winetricks
     protontricks
-	jq
-    clang-tools
-    gnumake
-    ardour
-    gdb
-    trezor-suite
-    trezor-udev-rules
-    monero-gui
 
-    qutebrowser
-    alacritty
-    pinentry
-    git
-    nodejs
-    nodePackages.prettier
-    tor-browser-bundle-bin
-    dmenu
-    vscode-with-extensions
-    fish #TODO: configure
-    nitrogen # wallpapers
-    sct # screen color temperature
-    pavucontrol
-    ncspot # ncurses based Spotify client
-    qemu
-    gcc
-    htop
-    neofetch
-    discord
+    ### Windowmanager related ###
     rofi-wayland
-
-    qbittorrent
-    remmina
-    mypy
-
-    android-studio
-    unzip
     xfce.thunar
     xfce.tumbler
     xfce.ristretto
-    nwg-look
-    xorg.xev
+
+    ### Terminal emulators ###
+    kitty
+    alacritty
+    dmenu
+
+
+    ### Development ###
+    git
+    ### Utilities ###
+    pinentry
+    sct # screen color temperature
+    qemu
+    htop
     mutt
     zathura
+
+
+    ### Other ### 
+    neofetch
+    qbittorrent
+    remmina
+    mypy
+    unzip
+    trezor-suite
+    trezor-udev-rules
+    monero-gui
+    xorg.xev
   ];
 }
