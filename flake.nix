@@ -48,8 +48,8 @@
           ./system/WM/qtile/default.nix
           ./system/sddm/default.nix
           inputs.musnix.nixosModules.musnix
-          ./system/musnix/default.nix
-          ./system/jack/default.nix
+#          ./system/musnix/default.nix
+#          ./system/jack/default.nix
         ];
         specialArgs = {
         inherit inputs;
