@@ -6,6 +6,7 @@
 {
   config,
   pkgs,
+  lib,
   ...
 }: {
   imports = [
@@ -66,7 +67,7 @@
   hardware.pulseaudio.package = pkgs.pulseaudioFull;
   hardware.pulseaudio.enable = true;
 
-  networking.hostName = "nixos"; # Define your hostname.
+  networking.hostName = lib.mkDefault "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -74,7 +75,7 @@
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Enable networking
-  networking.networkmanager.enable = true;
+  networking.networkmanager.enable = lib.mkDefault true;
   networking.firewall.allowedTCPPorts = [8384 22000 3389];
   networking.firewall.allowedUDPPorts = [22000 21027];
 
@@ -139,8 +140,8 @@
     wget
   ];
 
-    security.sudo.extraConfig = ''
+  security.sudo.extraConfig = ''
     erik  ALL=(ALL) NOPASSWD: ${pkgs.systemd}/bin/systemctl
-    '';
+  '';
   system.stateVersion = "23.11"; # Did you read the comment?
 }

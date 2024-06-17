@@ -35,6 +35,7 @@
 
     ### Windowmanager related ###
     rofi-wayland
+    mypy #needed for qtile
     xfce.thunar
     xfce.tumbler
     xfce.ristretto
