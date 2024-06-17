@@ -10,6 +10,7 @@
     home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     musnix = {url = "github:musnix/musnix";};
+    nvim.url = "github:erik-sundin-git/neovim";
   };
 
   outputs = inputs @ {
@@ -48,12 +49,13 @@
           ./system/WM/qtile/default.nix
           ./system/sddm/default.nix
           inputs.musnix.nixosModules.musnix
-#          ./system/musnix/default.nix
-#          ./system/jack/default.nix
+          #          ./system/musnix/default.nix
+          #          ./system/jack/default.nix
         ];
         specialArgs = {
-        inherit inputs;
-inherit userSettings;
+          inherit inputs;
+          inherit userSettings;
+          inherit systemSettings;
         };
       };
     };

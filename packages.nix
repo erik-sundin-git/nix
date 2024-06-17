@@ -3,10 +3,17 @@
 #
 # Packages to be enabled systemwide.
 #
-{pkgs, ...}: {
+{
+  config,
+  inputs,
+  systemSettings,
+  lib,
+  pkgs,
+  ...
+}: {
   environment.systemPackages = with pkgs; [
-    ### Browsers ### 
-    firefox 
+    ### Browsers ###
+    firefox
     chromium
     qutebrowser
     tor-browser-bundle-bin
@@ -15,13 +22,12 @@
     ardour
     ncspot # ncurses based Spotify client
     pavucontrol
-    
+
     ### Looks/theming ###
     nitrogen # wallpapers
     nwg-look
 
-
-    ### Gaming ### 
+    ### Gaming ###
     discord
     gamemode
     winetricks
@@ -38,9 +44,10 @@
     alacritty
     dmenu
 
-
     ### Development ###
     git
+    (inputs.nvim.defaultPackage."${systemSettings.system}")
+
     ### Utilities ###
     pinentry
     sct # screen color temperature
@@ -49,8 +56,7 @@
     mutt
     zathura
 
-
-    ### Other ### 
+    ### Other ###
     neofetch
     qbittorrent
     remmina
