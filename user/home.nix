@@ -12,8 +12,6 @@
     ./picom.nix
     ./terminal/kitty.nix
     ./terminal/alacritty.nix
-    ./terminal/vim.nix
-    #  ./terminal/neovim.nix
     ./terminal/fish.nix
     ./rofi.nix
   ];
