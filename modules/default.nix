@@ -14,6 +14,7 @@
     ./packages.nix
     ./system/WM/qtile/default.nix
     ./system/x11/default.nix
+    ./fish/default.nix
     ./system/sddm/default.nix
     #inputs.musnix.nixosModules.musnix
     #          ./system/musnix/default.nix
