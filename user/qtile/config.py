@@ -13,7 +13,7 @@ import socket
 
 mod = "mod4"
 terminal = "alacritty"
-#terminal = "kitty"
+# terminal = "kitty"
 browser = "qutebrowser"
 menu = "rofi -show drun"
 FONT_SIZE = 14
@@ -72,10 +72,17 @@ def create_bars() -> bar.Bar:
                 },
                 name_transform=lambda name: name.upper(),
             ),
-            battery_widget() if host_name == "LENOVO" else widget.Spacer(),
+            widget.Spacer(),
+            battery_widget() if host_name == "LENOVO" else None,
             widget.PulseVolume(),
-            widget.Bluetooth(background="92B4A7"),
-            widget.Memory(background="B6CB9E"),
+            widget.Bluetooth(
+                background="92B4A7",
+                foreground="000000",
+            ),
+            widget.Memory(
+                background="B6CB9E",
+                foreground="000000",
+            ),
             widget.Systray(),
             widget.Clock(format="%Y-%m-%d %a %H:%M %p"),
             widget.QuickExit(),
@@ -229,10 +236,9 @@ for i in groups:
     )
 
 
-
 layouts = [
     layout.Columns(border_focus="#bb00ff", margin=2),
-    # layout.MonadTall(border_focus="#28464B", margin=4),
+    layout.MonadTall(border_focus="#28464B", margin=4),
     layout.Max(),
     # layout.MonadWide(border_focus="#28464B"),
     # layout.Stack(num_stacks=2),

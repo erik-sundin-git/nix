@@ -19,7 +19,6 @@
       ssh-plex = "ssh erik@192.168.1.145";
 
       # git
-      status = "git status";
       commit = "git commit -m";
       push = "git push origin";
     };
