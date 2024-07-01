@@ -56,6 +56,7 @@
     htop
     mutt
     zathura
+    mdcat
 
     ### Other ###
     neofetch

@@ -19,7 +19,6 @@
 
   services.trezord.enable = true;
 
-  programs.fish.enable = true;
   services.syncthing = {
     enable = true;
     user = "erik";

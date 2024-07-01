@@ -20,7 +20,6 @@
     musnix,
     ...
   }: let
-
     # TODO: actually use all variables.
     systemSettings = {
       system = "x86_64-linux"; # system arch
@@ -42,16 +41,7 @@
     nixosConfigurations = {
       erik = lib.nixosSystem {
         modules = [
-          #TODO: maybe move imports to a modules.nix file?
-          (./. + "/hardwares" + ("/" + systemSettings.hardware) + "/hardware-configuration.nix")
-         (./. + "/hosts" + ("/" + systemSettings.hostname) + "/configuration.nix")
-          ./programs/steam.nix
-          ./packages.nix
-          ./system/WM/qtile/default.nix
-          ./system/sddm/default.nix
-         # inputs.musnix.nixosModules.musnix
-          #          ./system/musnix/default.nix
-          #          ./system/jack/default.nix
+        ./modules/default.nix
         ];
         specialArgs = {
           inherit inputs;
