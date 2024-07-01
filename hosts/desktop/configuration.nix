@@ -10,6 +10,7 @@
   ...
 }: {
   imports = [
+    <home-manager/nixos>
   ];
 
   # enable flakes
@@ -34,19 +35,10 @@
     pinentryPackage = pkgs.pinentry-curses;
   };
 
-  boot.kernelParams = ["intel_idle.max_cstate=1"]; # In case your laptop hangs randomly
-  boot.loader = {
-    efi = {
-      canTouchEfiVariables = true;
-      efiSysMountPoint = "/boot/efi";
-    };
-    grub = {
-      efiSupport = true;
-      # efiInstallAsRemovable = true;
-      device = "nodev";
-      configurationLimit = 15;
-    };
-  };
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
+  boot.initrd.luks.devices."luks-45d67f0d-83e2-4a2f-9c40-79917a5a4b89".device = "/dev/disk/by-uuid/45d67f0d-83e2-4a2f-9c40-79917a5a4b89";
+  boot.loader.grub.devices = ["/dev/disk/by-uuid/45d67f0d-83e2-4a2f-9c40-79917a5a4b89"];
 
   # Garbage collection
   nix.gc = {
@@ -64,8 +56,8 @@
   programs.virt-manager.enable = true;
   security.polkit.enable = true;
   #audio
-  hardware.pulseaudio.package = pkgs.pulseaudioFull;
-  hardware.pulseaudio.enable = true;
+  # hardware.pulseaudio.package = pkgs.pulseaudioFull;
+  # hardware.pulseaudio.enable = true;
 
   networking.hostName = lib.mkDefault "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -113,6 +105,11 @@
     description = "erik";
     extraGroups = ["networkmanager" "wheel" "libvirtd"];
     packages = with pkgs; [];
+  };
+
+  home-manager.backupFileExtension = "backup";
+  home-manager.users.erik = {pkgs, ...}: {
+    imports = [../../user/home.nix];
   };
 
   # MPD

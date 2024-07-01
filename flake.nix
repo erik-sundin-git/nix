@@ -24,8 +24,8 @@
     # TODO: actually use all variables.
     systemSettings = {
       system = "x86_64-linux"; # system arch
-      hardware = "laptop"; # sets hardware-configuration
-      hostname = "lenovo-yoga"; # hostname TODO: make automatic.
+      hardware = "desktop"; # sets hardware-configuration
+      hostname = "desktop"; # hostname TODO: make automatic.
       timezone = "Europe/Stockholm"; # select timezone
       locale = "en_US.UTF-8"; # select locale
       bootMode = "uefi"; # uefi or bios
@@ -44,12 +44,12 @@
         modules = [
           #TODO: maybe move imports to a modules.nix file?
           (./. + "/hardwares" + ("/" + systemSettings.hardware) + "/hardware-configuration.nix")
-          (./. + "/hosts" + ("/" + systemSettings.hostname) + "/configuration.nix")
+         (./. + "/hosts" + ("/" + systemSettings.hostname) + "/configuration.nix")
           ./programs/steam.nix
           ./packages.nix
           ./system/WM/qtile/default.nix
           ./system/sddm/default.nix
-          inputs.musnix.nixosModules.musnix
+         # inputs.musnix.nixosModules.musnix
           #          ./system/musnix/default.nix
           #          ./system/jack/default.nix
         ];
@@ -58,13 +58,6 @@
           inherit userSettings;
           inherit systemSettings;
         };
-      };
-    };
-
-    homeConfigurations = {
-      erik-home = home-manager.lib.homeManagerConfiguration {
-        modules = [./home.nix];
-        extraSpecialArgs = {};
       };
     };
   };
