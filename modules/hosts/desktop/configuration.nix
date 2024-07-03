@@ -55,8 +55,17 @@
   programs.virt-manager.enable = true;
   security.polkit.enable = true;
   #audio
-  # hardware.pulseaudio.package = pkgs.pulseaudioFull;
-  # hardware.pulseaudio.enable = true;
+  #hardware.pulseaudio.package = pkgs.pulseaudioFull;
+  hardware.pulseaudio.enable = false;
+  security.rtkit.enable = true;
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+    jack.enable = true;
+  };
+
 
   networking.hostName = lib.mkDefault "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.

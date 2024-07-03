@@ -13,6 +13,7 @@
     ./programs/steam.nix
     ./packages.nix
     ./system/WM/qtile/default.nix
+    ./system/WM/gnome/default.nix
     ./system/x11/default.nix
     ./fish/default.nix
     ./system/sddm/default.nix

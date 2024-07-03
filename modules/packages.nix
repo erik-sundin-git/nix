@@ -35,7 +35,6 @@
 
     ### Windowmanager related ###
     rofi-wayland
-    mypy #needed for qtile
     xfce.thunar
     xfce.tumbler
     xfce.ristretto
@@ -62,7 +61,7 @@
     neofetch
     qbittorrent
     remmina
-    mypy
+    python312Packages.mypy
     unzip
     trezor-suite
     trezor-udev-rules

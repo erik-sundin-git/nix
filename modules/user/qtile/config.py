@@ -21,12 +21,6 @@ FONT_SIZE = 14
 desktop = "nixos"
 
 
-@hook.subscribe.startup_once
-def start_once():
-    home = os.path.expanduser("~")
-    subprocess.call([home + "/nix/user/qtile/autostart.sh"])
-
-
 def get_vendor_info():
     path = "/sys/class/dmi/id/sys_vendor"
     try:
@@ -268,7 +262,6 @@ screens = [
         top=bar.Bar(
             [
                 widget.CurrentLayout(),
-                widget.Pomodoro(),
                 # Add other widgets here
             ],
             24,
