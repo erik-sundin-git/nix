@@ -7,6 +7,7 @@
   config,
   pkgs,
   lib,
+  systemSettings,
   ...
 }: {
   imports = [
@@ -19,15 +20,8 @@
 
   services.trezord.enable = true;
 
-  services.syncthing = {
-    enable = true;
-    user = "erik";
-    dataDir = "/home/erik/Documents";
-    settings.gui = {
-      user = "erik";
-      password = "plssteal";
-    };
-  };
+  services.flatpak.enable = true;
+  xdg.portal.enable = true;
 
   programs.gnupg.agent = {
     enable = true;
@@ -39,22 +33,24 @@
   boot.initrd.luks.devices."luks-45d67f0d-83e2-4a2f-9c40-79917a5a4b89".device = "/dev/disk/by-uuid/45d67f0d-83e2-4a2f-9c40-79917a5a4b89";
   boot.loader.grub.devices = ["/dev/disk/by-uuid/45d67f0d-83e2-4a2f-9c40-79917a5a4b89"];
 
-  # Garbage collection
+  ## Garbage collection ##
   nix.gc = {
     automatic = true;
     dates = "weekly";
     options = "--delete-older-than 1w";
   };
 
-  #Bluetooth
+  ## Bluetooth ##
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = true;
   services.blueman.enable = true;
-  # vm stuff
+
+  ## vm stuff ##
   virtualisation.libvirtd.enable = true;
   programs.virt-manager.enable = true;
   security.polkit.enable = true;
-  #audio
+
+  ## audio ##
   #hardware.pulseaudio.package = pkgs.pulseaudioFull;
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
@@ -66,8 +62,7 @@
     jack.enable = true;
   };
 
-
-  networking.hostName = lib.mkDefault "nixos"; # Define your hostname.
+  networking.hostName = lib.mkDefault systemSettings.hostname; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -80,10 +75,10 @@
   networking.firewall.allowedUDPPorts = [22000 21027];
 
   # Set your time zone.
-  time.timeZone = "Europe/Stockholm";
+  time.timeZone = lib.mkDefault systemSettings.timezone;
 
   # Select internationalisation properties.
-  i18n.defaultLocale = "en_US.UTF-8";
+  i18n.defaultLocale = lib.mkDefault systemSettings.locale;
 
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "sv_SE.UTF-8";

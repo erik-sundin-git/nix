@@ -3,7 +3,7 @@
 #
 # colorpalette: https://coolors.co/d1f0b1-b6cb9e-92b4a7-8c8a93-81667a
 
-from libqtile import bar, layout, qtile, widget
+from libqtile import bar, layout, qtile, widget, hook
 from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
@@ -34,7 +34,7 @@ def get_vendor_info():
     return vendor_info
 
 
-# host_name = get_vendor_info()
+host_name = get_vendor_info()
 
 
 def battery_widget():
@@ -67,7 +67,7 @@ def create_bars() -> bar.Bar:
                 name_transform=lambda name: name.upper(),
             ),
             widget.Spacer(),
-            #            battery_widget() if host_name == "LENOVO" else None,
+            battery_widget() if host_name == "LENOVO" else None,
             #            widget.PulseVolume(),
             widget.Bluetooth(
                 background="92B4A7",
@@ -256,7 +256,7 @@ extension_defaults = widget_defaults.copy()
 
 screens = [
     Screen(
-         top=create_bars(),
+        top=create_bars(),
     ),
     Screen(
         top=bar.Bar(

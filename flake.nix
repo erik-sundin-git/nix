@@ -26,7 +26,7 @@
       hardware = "desktop"; # sets hardware-configuration
       hostname = "desktop"; # hostname TODO: make automatic.
       timezone = "Europe/Stockholm"; # select timezone
-      locale = "en_US.UTF-8"; # select locale
+      locale = "sv_SE-UTF-8"; # select locale
       bootMode = "uefi"; # uefi or bios
       bootMountPath = "/boot"; # mount path for efi boot partition; only used for uefi boot mode
       grubDevice = ""; # device identifier for grub; only used for legacy (bios) boot mode

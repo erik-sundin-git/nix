@@ -13,7 +13,7 @@
 }: {
   environment.systemPackages = with pkgs; [
     ### Browsers ###
-    firefox
+#    firefox moved
     chromium
     qutebrowser
     tor-browser-bundle-bin
@@ -26,6 +26,8 @@
     ### Looks/theming ###
     nitrogen # wallpapers
     nwg-look
+    gnome.gnome-tweaks
+    gnomeExtensions.pop-shell
 
     ### Gaming ###
     discord

@@ -9,11 +9,13 @@
   ...
 }: {
   imports = [
+    ./browsers/firefox/default.nix
     ./picom.nix
     ./terminal/kitty.nix
     ./terminal/alacritty.nix
     ./terminal/fish.nix
     ./rofi.nix
+    ./gnome/dconf.nix
   ];
 
   # manage.

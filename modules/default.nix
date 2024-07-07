@@ -11,6 +11,7 @@
     (./. + "/hardwares" + ("/" + systemSettings.hardware) + "/hardware-configuration.nix")
     (./. + "/hosts" + ("/" + systemSettings.hostname) + "/configuration.nix")
     ./programs/steam.nix
+    ./programs/firefox.nix
     ./packages.nix
     ./system/WM/qtile/default.nix
     ./system/WM/gnome/default.nix
