@@ -13,7 +13,6 @@
 }: {
   environment.systemPackages = with pkgs; [
     ### Browsers ###
-    #    firefox moved
     chromium
     qutebrowser
     tor-browser-bundle-bin
@@ -50,9 +49,6 @@
     qbittorrent
     remmina
     unzip
-    trezor-suite
-    trezor-udev-rules
-    monero-gui
     xorg.xev
   ];
 }
