@@ -13,6 +13,17 @@
     ../desktop/configuration.nix
   ];
   networking.hostName = "lenovo-yoga"; # Define your hostname.TODO: change to variable
-  #  networking.wireless.enable = true; # Enables wireless support via wpa_supplicant.
-  #  networking.networkmanager.enable = false; # override default
+
+  boot = {
+    loader = {
+      efi = {
+        canTouchEfiVariables = true;
+        efiSysMountPoint = "/boot/efi";
+      };
+      grub = {
+        efiSupport = true;
+        device = "nodev";
+      };
+    };
+  };
 }

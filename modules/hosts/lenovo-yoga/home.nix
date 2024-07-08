@@ -9,13 +9,14 @@
   ...
 }: {
   imports = [
-    ./browsers/firefox/default.nix
-    ./picom.nix
-    ./terminal/kitty.nix
-    ./terminal/alacritty.nix
-    ./terminal/fish.nix
-    ./rofi.nix
-    ./gnome/dconf.nix
+    ../../user/browsers/firefox/default.nix
+    ../../user/picom.nix
+    ../../user/terminal/kitty.nix
+    ../../user/terminal/alacritty.nix
+    ../../user/terminal/fish.nix
+    ../../user/rofi.nix
+    ./packages.nix
+    #../../user/gnome/dconf.nix #TODO broken
   ];
 
   # manage.
@@ -27,15 +28,9 @@
   # DO NOT CHANGE #
   home.stateVersion = "23.11"; # Please read the comment before changing.
 
-  # The home.packages option allows you to install Nix packages into your
-  # environment.
-  home.packages = [
-    # pkgs.hello
-  ];
-
   # dotfiles
   home.file = {
-    ".config/qtile/config.py".source = qtile/config.py;
+    ".config/qtile/config.py".source = ./qtile/config.py;
     ".config/hypr/hyprland/hyperland.conf".source = hyprland/hyprland.conf;
   };
   # Home Manager can also manage your environment variables through
@@ -62,5 +57,4 @@
   programs.home-manager = {
     enable = true;
   };
-  
 }
