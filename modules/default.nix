@@ -10,7 +10,7 @@
   imports = [
     (./. + "/hardwares" + ("/" + systemSettings.hardware) + "/hardware-configuration.nix")
     (./. + "/hosts" + ("/" + systemSettings.hostname) + "/configuration.nix")
-    (./. + "/hosts" + ("/" + systemSettings.hostname)+ "/home.nix")
+    #    (./. + "/hosts" + ("/" + systemSettings.hostname)+ "/home.nix")
     ./programs/steam.nix
     ./programs/firefox.nix
     ./packages.nix

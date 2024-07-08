@@ -15,7 +15,7 @@
     ../../user/terminal/alacritty.nix
     ../../user/terminal/fish.nix
     ../../user/rofi.nix
-    ./packages.nix
+    ../../user/apps/gaming.nix
     #../../user/gnome/dconf.nix #TODO broken
   ];
 
@@ -23,6 +23,8 @@
   home.username = "erik";
   home.homeDirectory = "/home/erik";
 
+  home.packages = with pkgs; [
+  ];
   nixpkgs.config.allowUnfree = true;
 
   # DO NOT CHANGE #
@@ -30,8 +32,8 @@
 
   # dotfiles
   home.file = {
-    ".config/qtile/config.py".source = ./qtile/config.py;
-    ".config/hypr/hyprland/hyperland.conf".source = hyprland/hyprland.conf;
+    ".config/qtile/config.py".source = ../../user/qtile/config.py;
+    ".config/hypr/hyprland/hyperland.conf".source = ../../user/hyprland/hyprland.conf;
   };
   # Home Manager can also manage your environment variables through
   # 'home.sessionVariables'. These will be explicitly sourced when using a

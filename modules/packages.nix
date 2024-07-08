@@ -13,7 +13,7 @@
 }: {
   environment.systemPackages = with pkgs; [
     ### Browsers ###
-#    firefox moved
+    #    firefox moved
     chromium
     qutebrowser
     tor-browser-bundle-bin
@@ -24,22 +24,8 @@
     pavucontrol
 
     ### Looks/theming ###
-    nitrogen # wallpapers
-    nwg-look
     gnome.gnome-tweaks
     gnomeExtensions.pop-shell
-
-    ### Gaming ###
-    discord
-    gamemode
-    winetricks
-    protontricks
-
-    ### Windowmanager related ###
-    rofi-wayland
-    xfce.thunar
-    xfce.tumbler
-    xfce.ristretto
 
     ### Terminal emulators ###
     kitty
@@ -63,7 +49,6 @@
     neofetch
     qbittorrent
     remmina
-    python312Packages.mypy
     unzip
     trezor-suite
     trezor-udev-rules

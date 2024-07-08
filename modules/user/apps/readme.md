@@ -1,7 +1,8 @@
 # Apps
 
-This module contains different nix files with different packages
-listed in them. The user can choose what to include in their configuration
+This module contains various Nix files,
+each listing different packages.
+Users can select which packages to include in their configuration based on their needs.
 
 ## Categories
 
