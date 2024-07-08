@@ -114,7 +114,10 @@
   home-manager.backupFileExtension = "backup";
   home-manager.users.erik = {pkgs, ...}: {
     home.stateVersion = "23.11";
-    imports = [(../. + ("/" + systemSettings.hostname) + "/modules.nix")];
+    imports = [
+      (../. + ("/" + systemSettings.hostname) + "/home.nix")
+      (../. + ("/" + systemSettings.hostname) + "/modules.nix")
+    ];
   };
 
   # MPD

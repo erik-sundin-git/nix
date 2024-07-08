@@ -9,14 +9,6 @@
   ...
 }: {
   imports = [
-    ../../user/browsers/firefox/default.nix
-    ../../user/picom.nix
-    ../../user/terminal/kitty.nix
-    ../../user/terminal/alacritty.nix
-    ../../user/terminal/fish.nix
-    ../../user/rofi.nix
-    ./packages.nix
-    #../../user/gnome/dconf.nix #TODO broken
   ];
 
   # manage.
@@ -30,11 +22,11 @@
 
   # dotfiles
   home.file = {
-    ".config/qtile/config.py".source = ./qtile/config.py;
-    ".config/hypr/hyprland/hyperland.conf".source = hyprland/hyprland.conf;
+    ".config/qtile/config.py".source = ../../user/qtile/config.py;
+    ".config/hypr/hyprland/hyperland.conf".source = ../../user/hyprland/hyprland.conf;
   };
-  
-   programs.home-manager = {
+
+  programs.home-manager = {
     enable = true;
   };
 }

@@ -9,14 +9,7 @@
   ...
 }: {
   imports = [
-    ../../user/browsers/firefox/default.nix
-    ../../user/picom.nix
-    ../../user/terminal/kitty.nix
-    ../../user/terminal/alacritty.nix
-    ../../user/terminal/fish.nix
-    ../../user/rofi.nix
-    ../../user/apps/gaming.nix
-    #../../user/gnome/dconf.nix #TODO broken
+    ../desktop/home.nix
   ];
 
   # manage.

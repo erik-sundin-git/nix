@@ -9,7 +9,7 @@
   home.packages = with pkgs; [
     nitrogen
     nwg-look
-    rofi-wayland
+#    rofi-wayland
     xfce.thunar
     xfce.tumbler
     xfce.ristretto
