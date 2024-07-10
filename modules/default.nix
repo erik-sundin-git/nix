@@ -15,6 +15,7 @@
     ./programs/firefox.nix
     ./packages.nix
     ./system/WM/qtile/default.nix
+    ./system/ssh/default.nix
     ./system/WM/gnome/default.nix
     ./system/x11/default.nix
     ./fish/default.nix
