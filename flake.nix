@@ -23,8 +23,8 @@
     # TODO: actually use all variables.
     systemSettings = {
       system = "x86_64-linux"; # system arch
-      hardware = "laptop"; # sets hardware-configuration
-      hostname = "lenovo-yoga"; # hostname TODO: make automatic.
+      hardware = "desktop"; # sets hardware-configuration
+      hostname = "desktop"; # hostname TODO: make automatic.
       timezone = "Europe/Stockholm"; # select timezone
       locale = "en_US.UTF-8"; # select locale
       bootMode = "uefi"; # uefi or bios

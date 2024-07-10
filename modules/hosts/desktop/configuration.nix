@@ -27,12 +27,12 @@
     enable = true;
     pinentryPackage = pkgs.pinentry-curses;
   };
-  #  boot = lib.mkDefault {
-  #    loader.systemd-boot.enable = true;
-  #    loader.efi.canTouchEfiVariables = true;
-  #    initrd.luks.devices."luks-45d67f0d-83e2-4a2f-9c40-79917a5a4b89".device = "/dev/disk/by-uuid/45d67f0d-83e2-4a2f-9c40-79917a5a4b89";
-  #   loader.grub.devices = ["/dev/disk/by-uuid/45d67f0d-83e2-4a2f-9c40-79917a5a4b89"];
-  #  };
+  # Bootloader.
+  # boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader.grub.enable = true;
+  boot.loader.grub.device = "nodev";
+  boot.loader.grub.useOSProber = true;
 
   ## Garbage collection ##
   nix.gc = {
