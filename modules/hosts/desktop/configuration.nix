@@ -14,19 +14,17 @@
     <home-manager/nixos>
   ];
 
-  # enable flakes
   nix.settings.experimental-features = ["nix-command" "flakes"];
   nix.settings.auto-optimise-store = true;
 
-  services.trezord.enable = true;
-
-  services.flatpak.enable = true;
   xdg.portal.enable = true;
 
   programs.gnupg.agent = {
     enable = true;
     pinentryPackage = pkgs.pinentry-curses;
   };
+
+
   # Bootloader.
   # boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;

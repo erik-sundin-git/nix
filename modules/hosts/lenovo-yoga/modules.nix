@@ -6,7 +6,6 @@
 }: {
   imports = [
     ../../user/apps/tiling.nix
-    ../../user/apps/econ.nix
     ../../user/rofi.nix
     ../../user/browsers/firefox/default.nix
     ../../user/picom.nix
