@@ -7,6 +7,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
+    nixpkgs-stable.url = "github:nixos/nixpkgs?ref=nixos-24.05";
     home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     musnix = {url = "github:musnix/musnix";};
@@ -16,6 +17,7 @@
   outputs = inputs @ {
     self,
     nixpkgs,
+    nixpkgs-stable,
     home-manager,
     musnix,
     ...
@@ -39,11 +41,26 @@
     lib = inputs.nixpkgs.lib;
   in {
     nixosConfigurations = {
-      erik = lib.nixosSystem {
+      erik = lib.nixosSystem rec {
+        system = "x86_64-linux";
+
         modules = [
-        ./modules/default.nix
+          ./modules/default.nix
         ];
         specialArgs = {
+          nixpkgs.config.packageOverrides = pkgs: {
+            nur = import (builtins.fetchTarball "https://github.com/nix-community/NUR/archive/master.tar.gz") {
+              inherit pkgs;
+            };
+          };
+          pkgs-stable = import nixpkgs-stable {
+            # Refer to the `system` parameter from
+            # the outer scope recursively
+            inherit system;
+            # To use Chrome, we need to allow the
+            # installation of non-free software.
+            config.allowUnfree = true;
+          };
           inherit inputs;
           inherit userSettings;
           inherit systemSettings;

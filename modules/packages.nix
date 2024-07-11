@@ -8,13 +8,14 @@
   inputs,
   systemSettings,
   lib,
+  pkgs-stable,
   pkgs,
   ...
 }: {
   environment.systemPackages = with pkgs; [
     ### Browsers ###
     chromium
-    qutebrowser
+    pkgs-stable.qutebrowser
     tor-browser-bundle-bin
 
     ### Music and audio ###
@@ -34,6 +35,7 @@
     ### Development ###
     git
     (inputs.nvim.defaultPackage."${systemSettings.system}")
+    mypy
 
     ### Utilities ###
     pinentry
