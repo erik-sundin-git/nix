@@ -24,7 +24,7 @@
     pavucontrol
 
     ### Looks/theming ###
-    gnome.gnome-tweaks
+    gnome-tweaks
     gnomeExtensions.pop-shell
 
     ### Terminal emulators ###

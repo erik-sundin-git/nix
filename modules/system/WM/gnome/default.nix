@@ -7,21 +7,20 @@
   environment.gnome.excludePackages =
     (with pkgs; [
       gnome-photos
-
+      cheese # webcam tool
       gnome-tour
       gedit
+      geary # email reader
+      totem # video player
+      epiphany # web browser
+      evince # document viewer
+      gnome-terminal
     ])
     ++ (with pkgs.gnome; [
       gnome-maps
       gnome-weather
-      cheese # webcam tool
       gnome-music
-      gnome-terminal
-      epiphany # web browser
-      geary # email reader
-      evince # document viewer
       gnome-characters
-      totem # video player
       tali # poker game
       iagno # go game
       hitori # sudoku game

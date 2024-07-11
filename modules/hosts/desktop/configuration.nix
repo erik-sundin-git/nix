@@ -24,7 +24,6 @@
     pinentryPackage = pkgs.pinentry-curses;
   };
 
-
   # Bootloader.
   # boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -39,29 +38,13 @@
     options = "--delete-older-than 1w";
   };
 
-  ## Bluetooth ##
-  hardware.bluetooth.enable = true;
-  hardware.bluetooth.powerOnBoot = true;
-  services.blueman.enable = true;
-
   ## vm stuff ##
   virtualisation.libvirtd.enable = true;
   programs.virt-manager.enable = true;
   security.polkit.enable = true;
 
   ## audio ##
-  #hardware.pulseaudio.package = pkgs.pulseaudioFull;
-  hardware.pulseaudio.enable = false;
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    jack.enable = true;
-  };
-
-  networking.hostName = lib.mkDefault systemSettings.hostname; # Define your hostname.
+   networking.hostName = lib.mkDefault systemSettings.hostname; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
