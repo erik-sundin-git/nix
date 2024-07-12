@@ -5,6 +5,7 @@
 {
   config,
   inputs,
+  userSettings,
   pkgs,
   ...
 }: {

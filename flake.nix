@@ -36,6 +36,7 @@
 
     userSettings = {
       user = "erik";
+      font = "Ubuntu Monospace";
     };
 
     lib = inputs.nixpkgs.lib;

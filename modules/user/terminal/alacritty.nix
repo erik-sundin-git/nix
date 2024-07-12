@@ -1,6 +1,7 @@
 {
   pkgs,
   lib,
+  userSettings,
   ...
 }: {
   programs.alacritty.enable = true;
@@ -9,5 +10,9 @@
     shell.program = "/home/erik/.nix-profile/bin/fish";
 
     scrolling.multiplier = 5;
+
+#    font.normal = {
+#     family = "ubuntu";
+#    };
   };
 }

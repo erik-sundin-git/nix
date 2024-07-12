@@ -34,7 +34,7 @@ def get_vendor_info():
     return vendor_info
 
 
-# host_name = get_vendor_info()
+host_name = get_vendor_info()
 
 
 def battery_widget():
@@ -67,8 +67,8 @@ def create_bars() -> bar.Bar:
                 name_transform=lambda name: name.upper(),
             ),
             widget.Spacer(),
-            #  battery_widget() if host_name == "LENOVO" else None,
-            #            widget.PulseVolume(),
+            battery_widget() if host_name == "LENOVO" else None,
+            widget.PulseVolume(),
             widget.Bluetooth(
                 background="92B4A7",
                 foreground="000000",

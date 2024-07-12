@@ -1,7 +1,8 @@
 # Nixos configuration file
 # Author: Erik Sundin
 #
-#
+# Main configuration.nix file.
+# Includes the home-manager installation.
 #
 {
   config,
@@ -43,7 +44,6 @@
   programs.virt-manager.enable = true;
   security.polkit.enable = true;
 
-  ## audio ##
    networking.hostName = lib.mkDefault systemSettings.hostname; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 

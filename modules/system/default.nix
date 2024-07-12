@@ -1,6 +1,7 @@
 # My system modules
 {
   imports = [
+    ./fonts/default.nix
     ./bluetooth/default.nix
     ./WM/qtile/default.nix
     ./ssh/default.nix
