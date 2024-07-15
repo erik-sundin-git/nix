@@ -11,5 +11,6 @@
     xkb.variant = "";
     enable = true;
     windowManager.qtile.enable = true;
+    videoDrivers = ["displaylink" "modesetting"];
   };
 }
