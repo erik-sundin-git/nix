@@ -14,7 +14,6 @@
 
       # git
       commit = "git commit -m";
-      status = "git status";
       add = "git add";
       push = "git push origin";
     };
