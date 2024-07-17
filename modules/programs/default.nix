@@ -2,7 +2,5 @@
 {
   imports = [
     ./steam.nix
-    ./firefox.nix
-    ./tor.nix
   ];
 }

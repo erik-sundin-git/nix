@@ -259,14 +259,7 @@ screens = [
         top=create_bars(),
     ),
     Screen(
-        top=bar.Bar(
-            [
-                widget.CurrentLayout(),
-                # Add other widgets here
-            ],
-            24,
-            border_width=[2, 0, 2, 0],
-        ),
+        top=create_bars(),
     ),
 ]
 
