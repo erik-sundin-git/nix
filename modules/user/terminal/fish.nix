@@ -5,10 +5,6 @@
 }: {
   programs.fish = {
     enable = true;
-    interactiveShellInit = "function fish_greeting\n
-    neofetch\n
-    end\n
-    funcsave fish_greeting";
     shellAliases = {
 
 

@@ -98,7 +98,7 @@
     home.stateVersion = "23.11";
     imports = [
       (../. + ("/" + systemSettings.hostname) + "/home.nix")
-      (../. + ("/" + systemSettings.hostname) + "/modules.nix")
+#      (../. + ("/" + systemSettings.hostname) + "/modules.nix") Moved import to home.nix
     ];
   };
 

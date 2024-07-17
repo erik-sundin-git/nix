@@ -42,9 +42,9 @@
     sct # screen color temperature
     qemu
     htop
-    mutt
     zathura
     mdcat
+    xclip
 
     ### Other ###
     neofetch

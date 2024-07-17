@@ -7,9 +7,13 @@
   inputs,
   pkgs,
   ...
-}: {
+}: let
+  nur-no-pkgs = import (builtins.fetchTarball "https://github.com/nix-community/NUR/archive/master.tar.gz") {};
+in {
   imports = [
     ../desktop/home.nix
+    ./modules.nix
+    ../../overlays/nur.nix
   ];
 
   # manage.
@@ -17,6 +21,9 @@
   home.homeDirectory = "/home/erik";
 
   home.packages = with pkgs; [
+    obsidian # notes
+    neomutt # email
+    projectlibre
   ];
   nixpkgs.config.allowUnfree = true;
 
@@ -27,6 +34,7 @@
   home.file = {
     ".config/qtile/config.py".source = ../../user/qtile/config.py;
     ".config/hypr/hyprland/hyperland.conf".source = ../../user/hyprland/hyprland.conf;
+    "~/.neomuttrc".source = ../../user/terminal/neomutt/neomuttrc;
   };
   # Home Manager can also manage your environment variables through
   # 'home.sessionVariables'. These will be explicitly sourced when using a

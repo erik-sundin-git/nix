@@ -155,19 +155,19 @@ keys = [
     Key(
         [mod, "shift"],
         "Right",  # Example key combination (Ctrl + Left Arrow)
-        lazy.window.toscreen(1),  # Move window to screen 1
-        lazy.to_screen(1),
+        lazy.window.toscreen(0),  # Move window to screen 1
+        lazy.to_screen(0),
         desc="Move window to screen 1",
     ),
     Key(
         [mod, "shift"],
         "Left",  # Example key combination (Ctrl + Right Arrow)
-        lazy.window.toscreen(0),  # Move window to screen 0
-        lazy.to_screen(0),
+        lazy.window.toscreen(1),  # Move window to screen 0
+        lazy.to_screen(1),
         desc="Move window to screen 0",
     ),
-    Key([mod], "right", lazy.to_screen(1), desc="Move focus to next monitor"),
-    Key([mod], "left", lazy.to_screen(0), desc="Move focus to previous monitor"),
+    Key([mod], "right", lazy.to_screen(0), desc="Move focus to next monitor"),
+    Key([mod], "left", lazy.to_screen(1), desc="Move focus to previous monitor"),
     Key([mod, "control"], "right", lazy.layout.next_split()),
     Key([mod, "control"], "left", lazy.layout.next_split()),
 ]

@@ -1,12 +1,10 @@
 {
   config,
   pkgs,
-  nur,
   lib,
   ...
-}: let
-  nur-no-pkgs = import (builtins.fetchTarball "https://github.com/nix-community/NUR/archive/master.tar.gz") {};
-in {
+}:
+ {
   programs.firefox = {
     enable = true;
     package = pkgs.firefox;
@@ -25,13 +23,13 @@ in {
           "extensions.autoDisableScopes" = 0;
         };
 
-        extensions = with pkgs.nur.repos.rycee.firefox-addons; [
-          ublock-origin
-          bitwarden
-          darkreader
-          vimium
-          kristofferhagen-nord-theme
-        ];
+#        extensions = with pkgs.nur.repos.rycee.firefox-addons; [
+#          ublock-origin
+#          bitwarden
+#          darkreader
+#          vimium
+#          kristofferhagen-nord-theme
+#        ];
 
         search.engines = {
           "Nix Packages" = {
