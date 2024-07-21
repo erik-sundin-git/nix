@@ -40,6 +40,10 @@
     };
 
     lib = inputs.nixpkgs.lib;
+    pkgs-stable = import nixpkgs-stable {
+      system = systemSettings.system;
+      config.allowUnfree = true;
+    };
   in {
     nixosConfigurations = {
       erik = lib.nixosSystem rec {
@@ -54,15 +58,19 @@
               inherit pkgs;
             };
           };
-          pkgs-stable = import nixpkgs-stable {
-            # Refer to the `system` parameter from
-            # the outer scope recursively
-            inherit system;
-            # To use Chrome, we need to allow the
-            # installation of non-free software.
-            config.allowUnfree = true;
-          };
           inherit inputs;
+          inherit pkgs-stable;
+          inherit userSettings;
+          inherit systemSettings;
+        };
+      };
+    };
+    homeConfigurations = {
+      erik-home = home-manager.lib.homeManagerConfiguration {
+        modules = [(./modules + "/hosts" + ("/" + systemSettings.hostname) + "home.nix")];
+        extraSpecialArgs = {
+          inherit inputs;
+          inherit pkgs-stable;
           inherit userSettings;
           inherit systemSettings;
         };

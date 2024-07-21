@@ -2,6 +2,7 @@
   config,
   lib,
   pkgs,
+  pkgs-stable,
   ...
 }: {
   imports = [
@@ -13,5 +14,6 @@
     ../../user/browsers/chromium/default.nix
     ../../user/terminal/alacritty.nix
     ../../user/terminal/fish.nix
+    ../../user/emacs/default.nix
   ];
 }

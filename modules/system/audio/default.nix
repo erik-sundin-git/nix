@@ -1,7 +1,5 @@
 # audio config
 {
-  #hardware.pulseaudio.package = pkgs.pulseaudioFull;
-  hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;

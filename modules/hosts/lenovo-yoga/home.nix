@@ -6,6 +6,7 @@
   config,
   inputs,
   pkgs,
+  pkgs-stable,
   ...
 }: let
   nur-no-pkgs = import (builtins.fetchTarball "https://github.com/nix-community/NUR/archive/master.tar.gz") {};
@@ -24,6 +25,11 @@ in {
     obsidian # notes
     neomutt # email
     projectlibre
+
+    yabridge #use Windows VST2 and VST3 plugins on Linux
+    yabridgectl
+    wineWowPackages.staging
+    winetricks
   ];
   nixpkgs.config.allowUnfree = true;
 
@@ -35,6 +41,7 @@ in {
     ".config/qtile/config.py".source = ../../user/qtile/config.py;
     ".config/hypr/hyprland/hyperland.conf".source = ../../user/hyprland/hyprland.conf;
     "~/.neomuttrc".source = ../../user/terminal/neomutt/neomuttrc;
+    "~/.emacs.d/init.el".source = ../../user/emacs/init.el;
   };
   # Home Manager can also manage your environment variables through
   # 'home.sessionVariables'. These will be explicitly sourced when using a
