@@ -14,7 +14,7 @@
     ../../user/browsers/chromium/default.nix
     ../../user/terminal/alacritty/alacritty.nix
     ../../user/emacs/default.nix
-        ../../user/terminal/starship.nix
+    ../../user/terminal/starship/starship.nix
     ../../user/terminal/zsh.nix
     ../../user/apps/econ.nix
   ];
