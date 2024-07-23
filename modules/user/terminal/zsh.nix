@@ -8,6 +8,7 @@
   home.packages = with pkgs; [
     zinit
   ];
+
   programs.zsh = {
     enable = true;
     autosuggestion.enable = true;
@@ -22,5 +23,6 @@
       "zsh-users/zsh-history-substring-search"
     ];
 
+    initExtra = "PROMPT='%~%# '";
   };
 }
