@@ -45,6 +45,27 @@ in {
        ;; Your init file should contain only one such instance.
        ;; If there is more than one, they won't work right.
        )
+      ;; ORGSTUFF
+      (setq org-agenda-files '("~/Documents/todo.org"))
+
+      (setq org-todo-keywords
+          '((sequence "TODO" "DOING"  "WAITING" "DONE")))
+
+      (setq org-todo-keyword-faces
+      '(("TODO" . org-warning)  ; Use the built-in 'org-warning' face for TODO
+        ("DOING" . "yellow")
+        ("WAITING" . "orange")
+        ("DONE" . "green")
+        ("CANCELED" . "red")))
+      ;; Ensure Evil mode bindings do not interfere with Org mode's default behavior
+      (with-eval-after-load 'org
+      (define-key org-mode-map (kbd "TAB") 'org-cycle))
+      (with-eval-after-load 'evil
+        (define-key evil-normal-state-map (kbd "TAB") 'org-cycle)
+        (define-key evil-insert-state-map (kbd "TAB") 'org-cycle))
+      (setq org-agenda-include-diary t)
+
+
     '';
   };
 

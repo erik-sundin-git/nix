@@ -13,7 +13,9 @@
     ../desktop/configuration.nix
   ];
   networking.hostName = "lenovo-yoga"; # Define your hostname.TODO: change to variable
+  users.users.erik.ignoreShellProgramCheck = true;
 
+  services.trezord.enable = true;
   boot = {
     loader = {
       efi = {

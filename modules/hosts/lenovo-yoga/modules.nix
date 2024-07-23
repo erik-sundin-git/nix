@@ -13,7 +13,8 @@
     ../../user/browsers/firefox/default.nix
     ../../user/browsers/chromium/default.nix
     ../../user/terminal/alacritty.nix
-    ../../user/terminal/fish.nix
     ../../user/emacs/default.nix
+    ../../user/terminal/zsh.nix
+    ../../user/apps/econ.nix
   ];
 }

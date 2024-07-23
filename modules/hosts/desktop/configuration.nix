@@ -44,7 +44,7 @@
   programs.virt-manager.enable = true;
   security.polkit.enable = true;
 
-   networking.hostName = lib.mkDefault systemSettings.hostname; # Define your hostname.
+  networking.hostName = lib.mkDefault systemSettings.hostname; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -86,7 +86,7 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.erik = {
     isNormalUser = true;
-    shell = pkgs.fish;
+    shell = pkgs.zsh;
     description = "erik";
     extraGroups = ["networkmanager" "wheel" "libvirtd"];
     packages = with pkgs; [];
@@ -98,7 +98,7 @@
     home.stateVersion = "23.11";
     imports = [
       (../. + ("/" + systemSettings.hostname) + "/home.nix")
-#      (../. + ("/" + systemSettings.hostname) + "/modules.nix") Moved import to home.nix
+      #      (../. + ("/" + systemSettings.hostname) + "/modules.nix") Moved import to home.nix
     ];
   };
 

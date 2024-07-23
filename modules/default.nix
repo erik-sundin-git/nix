@@ -12,7 +12,6 @@
     (./. + "/hosts" + ("/" + systemSettings.hostname) + "/configuration.nix")
     ./programs/default.nix
     ./packages.nix
-    ./fish/default.nix
     ./system/default.nix
   ];
 }

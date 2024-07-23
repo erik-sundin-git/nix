@@ -26,8 +26,10 @@ in {
     neomutt # email
     projectlibre
 
-    yabridge #use Windows VST2 and VST3 plugins on Linux
-    yabridgectl
+    kanshi # output settings for wayland TODO move?
+    yabridge #use Windows VST2 and VST3 plugins on Linux TODO: move?
+    yabridgectl #TODO: move?
+    helm #synthesizer #TODO move
     wineWowPackages.staging
     winetricks
   ];
