@@ -32,13 +32,12 @@
       bootMode = "uefi"; # uefi or bios
       bootMountPath = "/boot"; # mount path for efi boot partition; only used for uefi boot mode
       grubDevice = "";
-      configPath = "~/nix/";
     };
 
     userSettings = {
       user = "erik";
+      configPath = "~/nix/";
       font = "Ubuntu Monospace";
-    
     };
 
     lib = inputs.nixpkgs.lib;
