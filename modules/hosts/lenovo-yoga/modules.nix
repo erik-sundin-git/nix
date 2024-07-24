@@ -13,6 +13,7 @@
     ../../user/browsers/firefox/default.nix
     ../../user/browsers/chromium/default.nix
     ../../user/terminal/alacritty/alacritty.nix
+    #Currently using emacs standalone
     ../../user/emacs/default.nix
     ../../user/terminal/starship/starship.nix
     ../../user/terminal/zsh.nix
