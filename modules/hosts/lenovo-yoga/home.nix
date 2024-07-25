@@ -43,7 +43,6 @@ in {
     ".config/qtile/config.py".source = ../../user/qtile/config.py;
     ".config/hypr/hyprland/hyperland.conf".source = ../../user/hyprland/hyprland.conf;
     "~/.neomuttrc".source = ../../user/terminal/neomutt/neomuttrc;
-    "~/.emacs.d/init.el".source = ../../user/emacs/init.el;
   };
   # Home Manager can also manage your environment variables through
   # 'home.sessionVariables'. These will be explicitly sourced when using a
