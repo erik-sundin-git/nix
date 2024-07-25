@@ -18,7 +18,7 @@
   nix.settings.experimental-features = ["nix-command" "flakes"];
   nix.settings.auto-optimise-store = true;
 
-  xdg.portal.enable = true;
+  #  xdg.portal.enable = true;
 
   programs.gnupg.agent = {
     enable = true;
@@ -36,7 +36,7 @@
   nix.gc = {
     automatic = true;
     dates = "weekly";
-    options = "--delete-older-than 1w";
+    options = "--delete-older-than 14d";
   };
 
   ## vm stuff ##

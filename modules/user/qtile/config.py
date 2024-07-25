@@ -10,6 +10,7 @@ from libqtile.utils import guess_terminal
 import os
 import subprocess
 import socket
+from colors import color_codes
 
 mod = "mod4"
 terminal = "alacritty"
@@ -190,11 +191,11 @@ groups = [
     Group("1"),
     Group("2"),
     Group("3"),
-    Group("4", matches=Match(wm_class="Bitwarden"), label="util"),
+    Group("4", matches=Match(wm_class="emacs"), label="emacs"),
     Group(
         "5",
         matches=[Match(wm_class="pavucontrol"), Match(title="ncspot")],
-        label="musik",
+        label="music",
     ),
     Group("6", matches=Match(wm_class="virt-manager"), label="vm"),
     Group("7"),

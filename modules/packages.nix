@@ -16,7 +16,6 @@
     ### Browsers ###
     chromium
     pkgs-stable.qutebrowser
-    tor-browser-bundle-bin
 
     ### Music and audio ###
     ardour
@@ -57,6 +56,5 @@
     qbittorrent
     remmina
     unzip
-    xorg.xev
   ];
 }
