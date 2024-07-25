@@ -36,6 +36,11 @@
     git
     (inputs.nvim.defaultPackage."${systemSettings.system}")
     mypy
+    emacs
+    clang
+    fd
+    coreutils
+    ripgrep
 
     ### Utilities ###
     pinentry
@@ -45,6 +50,7 @@
     zathura
     mdcat
     xclip
+    fzf 
 
     ### Other ###
     neofetch
