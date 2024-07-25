@@ -10,7 +10,7 @@ from libqtile.utils import guess_terminal
 import os
 import subprocess
 import socket
-from colors import color_codes
+import colors
 
 mod = "mod4"
 terminal = "alacritty"
@@ -20,7 +20,6 @@ menu = "rofi -show drun"
 FONT_SIZE = 14
 
 desktop = "nixos"
-
 
 def get_vendor_info():
     path = "/sys/class/dmi/id/sys_vendor"
@@ -40,9 +39,9 @@ host_name = get_vendor_info()
 
 def battery_widget():
     w = widget.Battery(
-        background="B6CB9E",
+        background= ""+colors.grey_blue_iguess,
         low_foreground="000000",
-        low_background="ff0010",
+        low_background=colors.red_1,
         format="{char}{percent: 2.0%}",
         foreground="000000",
         low_percentage=0.15,
@@ -71,11 +70,11 @@ def create_bars() -> bar.Bar:
             battery_widget() if host_name == "LENOVO" else None,
             widget.PulseVolume(),
             widget.Bluetooth(
-                background="92B4A7",
+                background=colors.color_18,
                 foreground="000000",
             ),
             widget.Memory(
-                background="B6CB9E",
+                background=colors.color_16,
                 foreground="000000",
             ),
             widget.Systray(),

@@ -74,6 +74,7 @@
           inherit pkgs-stable;
           inherit userSettings;
           inherit systemSettings;
+
         };
       };
     };
