@@ -40,7 +40,8 @@
       "gp" = "git push";
 
       ## System ##
-      "config-rebuild" = "sudo nixos-rebuild switch --impure --flake ${config.home.homeDirectory}/nix#erik";
+      "rebuild-config" = "sudo nixos-rebuild switch --impure --flake ${config.home.homeDirectory}/nix#erik";
+      "update-config" = "${config.home.homeDirectory}/nix/modules/system/scripts/update.sh";
     };
   };
 }
