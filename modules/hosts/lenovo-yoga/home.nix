@@ -1,4 +1,4 @@
-# home-manager
+# home.nix
 #
 # Erik Sundin
 #
@@ -22,14 +22,17 @@ in {
   home.homeDirectory = "/home/erik";
 
   home.packages = with pkgs; [
-    obsidian # notes
-    neomutt # email
-    projectlibre
 
-    kanshi # output settings for wayland TODO move?
+    ## Email ##
+    neomutt
+    notmuch
+
+    ## Music stuff ##
     yabridge #use Windows VST2 and VST3 plugins on Linux TODO: move?
     yabridgectl #TODO: move?
     helm #synthesizer #TODO move
+
+    ## Wine ##
     wineWowPackages.staging
     winetricks
   ];

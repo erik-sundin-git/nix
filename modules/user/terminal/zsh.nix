@@ -6,7 +6,7 @@
   ...
 }: {
   home.packages = with pkgs; [
-    zinit
+    antidote
   ];
 
   programs.zsh = {
@@ -23,6 +23,9 @@
       "zsh-users/zsh-history-substring-search"
     ];
 
-    initExtra = "PROMPT='%~%# '";
+    initExtra = "
+    PROMPT='%~%# '\n
+    eval '$(zoxide init zsh)'
+    ";
   };
 }

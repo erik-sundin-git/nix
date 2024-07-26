@@ -47,9 +47,9 @@
     qemu
     htop
     zathura
-    mdcat
+    mdcat # Cat but for markdown.
     xclip
-    fzf 
+    fzf # Fuzzy search
 
     ### Other ###
     neofetch
