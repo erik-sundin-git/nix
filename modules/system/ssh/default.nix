@@ -6,7 +6,5 @@
   pkgs,
   ...
 }: {
-  services.openssh = {
-    enable = true;
-  };
+ imports = [./homelab_ssh.nix]; 
 }
