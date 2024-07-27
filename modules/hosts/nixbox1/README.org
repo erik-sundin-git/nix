@@ -6,7 +6,7 @@ This is the main config for my servers.
 ** usage
 To use simply set these variables in [[file:../../../flake.nix][flake.nix]]
 #+begin_src nix
-{
+systemSettings = {
   hardware = "homelab";
   hostname = "nixbox1";
 }
