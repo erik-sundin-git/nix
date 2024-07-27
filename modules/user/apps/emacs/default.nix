@@ -9,7 +9,7 @@
   ];
 
   home.file = {
-    "/home/erik/.config/doom".source = ./doom;
+#    "/home/erik/.config/doom".source = ./doom;
   };
 
   home.sessionPath = [

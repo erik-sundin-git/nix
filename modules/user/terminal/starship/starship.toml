@@ -1,6 +1,7 @@
 format = """
 
 $directory\
+$hostname\
 $git_branch\
 $nodejs\
 $rust\
@@ -16,6 +17,9 @@ format = "[ $path ]($style)"
 truncation_length = 3
 truncation_symbol = "…/"
 
+[hostname]
+style = "bg:#4c566a"
+format = '[[ $symbol $hostname ](fg:#d8dee9 bg:#4c566a)]($style)'
 
 [git_branch]
 symbol = ""
