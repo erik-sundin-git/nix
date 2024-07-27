@@ -1,0 +1,12 @@
+#+title: Readme
+
+* Homelab configuration
+This is the main config for my servers.
+
+** usage
+To use simply set these variables in [[file:../../../flake.nix][flake.nix]]
+#+begin_src nix
+{
+
+}
+#+end_src
