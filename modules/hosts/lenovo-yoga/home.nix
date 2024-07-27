@@ -22,6 +22,19 @@ in {
   home.homeDirectory = "/home/erik";
 
   home.packages = with pkgs; [
+ ### Browsers ###
+    chromium
+    pkgs-stable.qutebrowser
+
+    ### Music and audio ###
+    ardour
+    ncspot # ncurses based Spotify client
+    pavucontrol
+
+    ### Looks/theming ###
+    gnome-tweaks
+    gnomeExtensions.pop-shell
+
 
     ## Email ##
     neomutt
