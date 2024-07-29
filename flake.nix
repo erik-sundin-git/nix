@@ -22,22 +22,42 @@
     musnix,
     ...
   }: let
-    # TODO: actually use all variables.
+    /*
+    * Change these settings to customise system **
+    */
     systemSettings = {
       system = "x86_64-linux"; # system arch
-      hardware = "laptop"; # sets hardware-configuration
-      hostname = "lenovo-yoga"; # hostname TODO: make automatic.
+      hardware = "desktop"; # sets hardware-configuration
+      hostname = "desktop"; # hostname TODO: make automatic.
       timezone = "Europe/Stockholm"; # select timezone
       locale = "en_US.UTF-8"; # select locale
       bootMode = "uefi"; # uefi or bios
       bootMountPath = "/boot"; # mount path for efi boot partition; only used for uefi boot mode
       grubDevice = "";
+
+      /*
+      Gaming
+      */
+      enableSteam = true;
+
+      /*
+      Shell/Terminal
+      */
+      enableFish = false;
+      enableZsh = true;
+
+      /*
+      other
+      */
+      enableGpg = true;
     };
 
     userSettings = {
       user = "erik";
       configPath = "~/nix/";
       font = "Ubuntu Monospace";
+      editor = "nvim";
+      shell = "zsh";
     };
 
     lib = inputs.nixpkgs.lib;
@@ -74,7 +94,6 @@
           inherit pkgs-stable;
           inherit userSettings;
           inherit systemSettings;
-
         };
       };
     };

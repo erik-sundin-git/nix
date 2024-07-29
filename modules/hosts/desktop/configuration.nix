@@ -9,6 +9,7 @@
   pkgs,
   lib,
   systemSettings,
+  userSettings,
   ...
 }: {
   imports = [
@@ -21,7 +22,10 @@
   #  xdg.portal.enable = true;
 
   programs.gnupg.agent = {
-    enable = true;
+    enable =
+      if systemSettings.enableGpg
+      then true
+      else false;
     pinentryPackage = pkgs.pinentry-curses;
   };
 
@@ -46,10 +50,6 @@
 
   networking.hostName = lib.mkDefault systemSettings.hostname; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Enable networking
   networking.networkmanager.enable = lib.mkDefault true;
@@ -83,54 +83,26 @@
   # Configure console keymap
   console.keyMap = "sv-latin1";
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.erik = {
+  users.users.${userSettings.user} = {
     isNormalUser = true;
-    shell = pkgs.zsh;
-    description = "erik";
+    ignoreShellProgramCheck = true;
+
+    shell = pkgs.${userSettings.shell};
+    description = userSettings.user;
     extraGroups = ["networkmanager" "wheel" "libvirtd"];
-    packages = with pkgs; [];
   };
 
   home-manager.backupFileExtension = "backup";
   home-manager.useGlobalPkgs = true;
-  home-manager.users.erik = {pkgs, ...}: {
+  home-manager.users.${userSettings.user} = {pkgs, ...}: {
     home.stateVersion = "23.11";
     imports = [
       (../. + ("/" + systemSettings.hostname) + "/home.nix")
-      #      (../. + ("/" + systemSettings.hostname) + "/modules.nix") Moved import to home.nix
     ];
   };
 
-  # MPD
-  services.mpd = {
-    enable = true;
-    extraConfig = ''
-      audio_output {
-               type "pulse"
-        name "pulseaudio"
-        server "127.0.0.1"
-             }
-    '';
-  };
-  hardware.pulseaudio.extraConfig = "load-module module-native-protocol-tcp auth-ip-acl=127.0.0.1";
-
-  # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-
-  # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
-  nixpkgs.config.packageOverrides = pkgs: {
-    nur = import (builtins.fetchTarball "https://github.com/nix-community/NUR/archive/master.tar.gz") {
-      inherit pkgs;
-    };
-  };
-
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
-  environment.variables.EDITOR = "nvim";
-  environment.systemPackages = with pkgs; [
-    wget
-  ];
+  environment.variables.EDITOR = userSettings.editor;
 
   security.sudo.extraConfig = ''
     erik  ALL=(ALL) NOPASSWD: ${pkgs.systemd}/bin/systemctl

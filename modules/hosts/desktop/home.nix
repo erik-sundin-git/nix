@@ -10,6 +10,7 @@
   ...
 }: {
   imports = [
+    ./modules.nix
   ];
 
   # manage.
@@ -24,6 +25,7 @@
   # dotfiles
   home.file = {
     ".config/qtile/config.py".source = ../../user/qtile/config.py;
+    ".config/qtile/colors.py".source = ../../user/qtile/colors.py;
     ".config/hypr/hyprland/hyperland.conf".source = ../../user/hyprland/hyprland.conf;
   };
 

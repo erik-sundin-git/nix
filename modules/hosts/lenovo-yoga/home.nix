@@ -22,7 +22,6 @@ in {
   home.homeDirectory = "/home/erik";
 
   home.packages = with pkgs; [
-
     ## Email ##
     neomutt
     notmuch
@@ -43,9 +42,6 @@ in {
 
   # dotfiles
   home.file = {
-    ".config/qtile/config.py".source = ../../user/qtile/config.py;
-    ".config/qtile/colors.py".source = ../../user/qtile/colors.py;
-    ".config/hypr/hyprland/hyperland.conf".source = ../../user/hyprland/hyprland.conf;
     "~/.neomuttrc".source = ../../user/terminal/neomutt/neomuttrc;
   };
   # Home Manager can also manage your environment variables through
