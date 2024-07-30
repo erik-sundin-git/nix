@@ -11,5 +11,6 @@
     ./x11/default.nix
     ./sddm/default.nix
     #   ./systemd/timers/default.nix
+    ./flatpak.nix
   ];
 }
