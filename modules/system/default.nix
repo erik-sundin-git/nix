@@ -2,8 +2,8 @@
 {
   imports = [
     ./fonts/default.nix
-    ./bluetooth/default.nix
-    ./WM/qtile/default.nix
+#    ./bluetooth/default.nix
+#    ./WM/qtile/default.nix
     ./ssh/default.nix
     #    ./WM/gnome/default.nix
     ./WM/plasma/default.nix

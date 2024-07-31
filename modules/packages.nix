@@ -35,7 +35,6 @@
     git
     (inputs.nvim.defaultPackage."${systemSettings.system}")
     mypy
-    emacs
     clang
     fd
     coreutils
@@ -43,18 +42,13 @@
 
     ### Utilities ###
     pinentry
-    sct # screen color temperature
-    qemu
     htop
-    zathura
     mdcat # Cat but for markdown.
     xclip
     fzf # Fuzzy search
 
     ### Other ###
     neofetch
-    qbittorrent
-    remmina
     unzip
   ];
 }

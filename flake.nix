@@ -30,8 +30,8 @@
     */
     systemSettings = {
       system = "x86_64-linux"; # system arch
-      hardware = "laptop"; # sets hardware-configuration
-      hostname = "lenovo-yoga"; # hostname TODO: make automatic.
+      hardware = "homelab"; # sets hardware-configuration
+      hostname = "nixbox1"; # hostname TODO: make automatic.
       timezone = "Europe/Stockholm"; # select timezone
       locale = "en_US.UTF-8"; # select locale
       bootMode = "uefi"; # uefi or bios
