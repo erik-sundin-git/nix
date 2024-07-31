@@ -8,6 +8,8 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
     nixpkgs-stable.url = "github:nixos/nixpkgs?ref=nixos-24.05";
+    nixpkgs-erik.url = "github:erik-sundin-git/nixpkgs?ref=picom-ftlabs";
+
     home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     musnix = {url = "github:musnix/musnix";};
@@ -18,6 +20,7 @@
     self,
     nixpkgs,
     nixpkgs-stable,
+    nixpkgs-erik,
     home-manager,
     musnix,
     ...
@@ -27,8 +30,8 @@
     */
     systemSettings = {
       system = "x86_64-linux"; # system arch
-      hardware = "desktop"; # sets hardware-configuration
-      hostname = "desktop"; # hostname TODO: make automatic.
+      hardware = "laptop"; # sets hardware-configuration
+      hostname = "lenovo-yoga"; # hostname TODO: make automatic.
       timezone = "Europe/Stockholm"; # select timezone
       locale = "en_US.UTF-8"; # select locale
       bootMode = "uefi"; # uefi or bios
@@ -36,7 +39,7 @@
       grubDevice = "";
 
       /*
-      Gaming
+      Gaming:
       */
       enableSteam = true;
 
@@ -65,6 +68,11 @@
       system = systemSettings.system;
       config.allowUnfree = true;
     };
+
+    pkgs-erik = import nixpkgs-erik {
+      system = systemSettings.system;
+      config.allowUnfree = true;
+    };
   in {
     nixosConfigurations = {
       erik = lib.nixosSystem rec {
@@ -81,6 +89,7 @@
           };
           inherit inputs;
           inherit pkgs-stable;
+          inherit pkgs-erik;
           inherit userSettings;
           inherit systemSettings;
         };
@@ -92,6 +101,7 @@
         extraSpecialArgs = {
           inherit inputs;
           inherit pkgs-stable;
+          inherit pkgs-erik;
           inherit userSettings;
           inherit systemSettings;
         };

@@ -8,6 +8,7 @@
   config,
   pkgs,
   lib,
+  pkgs-erik,
   systemSettings,
   userSettings,
   ...
@@ -94,6 +95,7 @@
 
   home-manager.backupFileExtension = "backup";
   home-manager.useGlobalPkgs = true;
+  home-manager.extraSpecialArgs = {inherit pkgs-erik;};
   home-manager.users.${userSettings.user} = {pkgs, ...}: {
     home.stateVersion = "23.11";
     imports = [

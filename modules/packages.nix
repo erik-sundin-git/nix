@@ -9,6 +9,7 @@
   systemSettings,
   lib,
   pkgs-stable,
+  pkgs-erik,
   pkgs,
   ...
 }: {
@@ -27,7 +28,6 @@
     gnomeExtensions.pop-shell
 
     ### Terminal emulators ###
-    kitty
     alacritty
     dmenu
 

@@ -7,6 +7,7 @@
   inputs,
   pkgs,
   pkgs-stable,
+  pkgs-erik,
   ...
 }: let
   nur-no-pkgs = import (builtins.fetchTarball "https://github.com/nix-community/NUR/archive/master.tar.gz") {};
@@ -43,6 +44,7 @@ in {
   # dotfiles
   home.file = {
     "~/.neomuttrc".source = ../../user/terminal/neomutt/neomuttrc;
+    "~/.config/picom/picom.conf".source = ../../user/picom/picom.conf;
   };
   # Home Manager can also manage your environment variables through
   # 'home.sessionVariables'. These will be explicitly sourced when using a

@@ -7,6 +7,7 @@
   inputs,
   userSettings,
   pkgs,
+  pkgs-erik,
   ...
 }: {
   imports = [
@@ -26,6 +27,7 @@
   home.file = {
     ".config/qtile/config.py".source = ../../user/qtile/config.py;
     ".config/qtile/colors.py".source = ../../user/qtile/colors.py;
+    ".config/qtile/autostart.sh".source = ../../user/qtile/autostart.sh;
     ".config/hypr/hyprland/hyperland.conf".source = ../../user/hyprland/hyprland.conf;
   };
 
