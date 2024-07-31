@@ -4,6 +4,8 @@
   pkgs,
   lib,
   config,
+  userSettings,
+  systemSettings,
   ...
 }: {
   home.packages = with pkgs; [

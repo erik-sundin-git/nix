@@ -8,6 +8,8 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
     nixpkgs-stable.url = "github:nixos/nixpkgs?ref=nixos-24.05";
+    nixpkgs-erik.url = "github:erik-sundin-git/nixpkgs?ref=picom-ftlabs";
+
     home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     musnix = {url = "github:musnix/musnix";};
@@ -18,11 +20,14 @@
     self,
     nixpkgs,
     nixpkgs-stable,
+    nixpkgs-erik,
     home-manager,
     musnix,
     ...
   }: let
-    # TODO: actually use all variables.
+    /*
+    * Change these settings to customise system **
+    */
     systemSettings = {
       system = "x86_64-linux"; # system arch
       hardware = "homelab"; # sets hardware-configuration
@@ -32,16 +37,39 @@
       bootMode = "uefi"; # uefi or bios
       bootMountPath = "/boot"; # mount path for efi boot partition; only used for uefi boot mode
       grubDevice = "";
+
+      /*
+      Gaming:
+      */
+      enableSteam = true;
+
+      /*
+      Shell/Terminal
+      */
+      enableFish = false;
+      enableZsh = true;
+
+      /*
+      other
+      */
+      enableGpg = true;
     };
 
     userSettings = {
       user = "erik";
       configPath = "~/nix/";
       font = "Ubuntu Monospace";
+      editor = "nvim";
+      shell = "zsh";
     };
 
     lib = inputs.nixpkgs.lib;
     pkgs-stable = import nixpkgs-stable {
+      system = systemSettings.system;
+      config.allowUnfree = true;
+    };
+
+    pkgs-erik = import nixpkgs-erik {
       system = systemSettings.system;
       config.allowUnfree = true;
     };
@@ -61,6 +89,7 @@
           };
           inherit inputs;
           inherit pkgs-stable;
+          inherit pkgs-erik;
           inherit userSettings;
           inherit systemSettings;
         };
@@ -72,9 +101,9 @@
         extraSpecialArgs = {
           inherit inputs;
           inherit pkgs-stable;
+          inherit pkgs-erik;
           inherit userSettings;
           inherit systemSettings;
-
         };
       };
     };

@@ -9,8 +9,7 @@
     ../../user/apps/tiling.nix
     ../../user/rofi.nix
     ../../user/apps/emacs/default.nix
-    ../../user/picom.nix
-    #../../user/terminal/kitty.nix
+    ../../user/terminal/kitty.nix
     ../../user/browsers/firefox/default.nix
     ../../user/browsers/chromium/default.nix
     ../../user/terminal/alacritty/alacritty.nix

@@ -3,7 +3,7 @@
 #
 # colorpalette: https://coolors.co/d1f0b1-b6cb9e-92b4a7-8c8a93-81667a
 
-from libqtile import bar, layout, qtile, widget
+from libqtile import bar, layout, qtile, widget, hook
 from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
@@ -13,13 +13,20 @@ import socket
 import colors
 
 mod = "mod4"
-terminal = "alacritty"
+terminal = "kitty"
 # terminal = "kitty"
 browser = "qutebrowser"
 menu = "rofi -show drun"
 FONT_SIZE = 14
 
 desktop = "nixos"
+
+
+@hook.subscribe.startup_once
+def autostart():
+    home = os.path.expanduser("~/.config/qtile/autostart.sh")
+    subprocess.Popen([home])
+
 
 def get_vendor_info():
     path = "/sys/class/dmi/id/sys_vendor"
@@ -39,7 +46,7 @@ host_name = get_vendor_info()
 
 def battery_widget():
     w = widget.Battery(
-        background= ""+colors.grey_blue_iguess,
+        background="" + colors.grey_blue_iguess,
         low_foreground="000000",
         low_background=colors.red_1,
         format="{char}{percent: 2.0%}",

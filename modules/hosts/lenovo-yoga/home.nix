@@ -7,6 +7,7 @@
   inputs,
   pkgs,
   pkgs-stable,
+  pkgs-erik,
   ...
 }: let
   nur-no-pkgs = import (builtins.fetchTarball "https://github.com/nix-community/NUR/archive/master.tar.gz") {};
@@ -22,20 +23,6 @@ in {
   home.homeDirectory = "/home/erik";
 
   home.packages = with pkgs; [
- ### Browsers ###
-    chromium
-    pkgs-stable.qutebrowser
-
-    ### Music and audio ###
-    ardour
-    ncspot # ncurses based Spotify client
-    pavucontrol
-
-    ### Looks/theming ###
-    gnome-tweaks
-    gnomeExtensions.pop-shell
-
-
     ## Email ##
     neomutt
     notmuch
@@ -56,10 +43,8 @@ in {
 
   # dotfiles
   home.file = {
-    ".config/qtile/config.py".source = ../../user/qtile/config.py;
-    ".config/qtile/colors.py".source = ../../user/qtile/colors.py;
-    ".config/hypr/hyprland/hyperland.conf".source = ../../user/hyprland/hyprland.conf;
     "~/.neomuttrc".source = ../../user/terminal/neomutt/neomuttrc;
+    "~/.config/picom/picom.conf".source = ../../user/picom/picom.conf;
   };
   # Home Manager can also manage your environment variables through
   # 'home.sessionVariables'. These will be explicitly sourced when using a

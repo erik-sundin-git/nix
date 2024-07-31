@@ -5,6 +5,7 @@
   systemSettings,
   lib,
   pkgs,
+  pkgs-erik,
   ...
 }: {
   imports = [
